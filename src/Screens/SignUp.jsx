@@ -23,7 +23,7 @@ const SignUp = () => {
             });
             if (response.data.success) {
                 alert(response.data.message);
-                navigate('/');
+                navigate('/login');
             } else {
                 setMessage(response.data.message);
             }
@@ -34,7 +34,19 @@ const SignUp = () => {
         }
     };
 
-    const isFormValid = () => username && email && password;
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const isValidPassword = (password) => {
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordRegex.test(password);
+    };
+
+    const isFormValid = () => {
+        return username && isValidEmail(email) && isValidPassword(password);
+    };
 
     return (
         <div className="sign-up-container">
@@ -61,6 +73,7 @@ const SignUp = () => {
                             className="input"
                         />
                         <label className="user-label">Email address</label>
+                        {!isValidEmail(email) && email && <p className="error-message">Please enter a valid email address.</p>}
                     </div>
                     <div className="input-group">
                         <input
@@ -71,17 +84,23 @@ const SignUp = () => {
                             className="input"
                         />
                         <label className="user-label">Password</label>
+                        {!isValidPassword(password) && password && <p className="error-message">Password must be at least 8 characters long, include a number and a special character.</p>}
                     </div>
                     <div className="checkbox-container">
                         <label htmlFor="login" className="checkbox-label"> 
-                        Already have an account!&emsp;
-                            <a href="/" className="link">click here</a>
+                            Already have an account!&emsp;
+                            <a href="/login" className="link">click here</a>
                         </label>
                     </div>
+                    {message && (
+                        <div className="error-message" role="alert">
+                            {message}
+                        </div>
+                    )}
                     <button onClick={handleSignUp} disabled={!isFormValid()} className="sign-up-button boton-elegante">
                         Sign Up
                     </button>
-                    {message && <p className="message">{message}</p>}
+                    
                 </div>
             </div>
             <div className="illustration">

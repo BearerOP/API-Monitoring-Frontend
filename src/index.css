@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'CustomFont';
-  src: url('./assets/fonts/CabinetGrotesk-Medium.otf') format('truetype'); /* Adjust the path as necessary */
+  src: url('./assets/fonts/CabinetGrotesk-Black.otf') format('truetype'); /* Adjust the path as necessary */
 }
 
 body {

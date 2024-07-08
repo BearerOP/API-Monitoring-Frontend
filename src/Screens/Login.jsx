@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Path from '../Services/Path';
 import svgImage from '../assets/images/undraw_authentication_re_svpt.svg';
 import bgImage from '../assets/images/mesh_background.png';
+import astronautImage from '../assets/images/astronaut.png';
+import { AuthContext } from '../Context/AuthContext';
 import '../Css/Login.css';
 
 const Login = () => {
@@ -11,6 +13,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const { isLoggedIn, login, logout} = useContext(AuthContext) 
 
     const handleLogin = async () => {
         setLoader(true);
@@ -22,11 +25,11 @@ const Login = () => {
             });
             if (response.data.success) {
                 localStorage.setItem('token', response.data.token);
-                console.log(response.data);
+                // Set isLoggedIn state or context value to true
+                login(response.data.token); // Assuming login function sets isLoggedIn state to true
                 alert(response.data.message); // Success message
                 navigate('/dashboard');
             } else {
-                console.log(response.data);
                 setMessage(response.data.message); // Server-side error message
             }
         } catch (error) {
@@ -49,7 +52,7 @@ const Login = () => {
                             required
                             type="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value) }
                             className="input"
                         />
                         <label className="user-label">Email address</label>
@@ -64,20 +67,33 @@ const Login = () => {
                         />
                         <label className="user-label">Password</label>
                     </div>
+                    {message && (
+                        <div className="error-message">
+                            {message}
+                        </div>
+                    )}
                     <div className="checkbox-container">
-                        <label htmlFor="login" className="checkbox-label"> 
+                        <label htmlFor="login" className="checkbox-label">
                             Create a new account!&emsp;
                             <a href="/signup" className="link">click here</a>
                         </label>
                     </div>
-                    <button onClick={handleLogin} disabled={!isFormValid()} className="login-button boton-elegante">
-                        Log In
+                    
+                    <button onClick={handleLogin} disabled={!isFormValid() || loader} className="login-button boton-elegante">
+                        {loader ? (
+                            <>
+                                Logging In
+                                <span className="spinner"></span>
+                            </>
+                        ) : (
+                            'Log In'
+                        )}
                     </button>
                 </div>
             </div>
             <div className="socialCard">
                 <img
-                    src="https://uiverse.io/build/_assets/astronaut-WTFWARES.png"
+                    src={astronautImage}
                     alt=""
                     className="image"
                 />
@@ -136,11 +152,6 @@ const Login = () => {
                     </a>
                 </div>
             </div>
-            {message && (
-                <div className="error-message">
-                    {message}
-                </div>
-            )}
         </div>
     );
 };
