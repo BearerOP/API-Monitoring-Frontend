@@ -1,8 +1,35 @@
 @font-face {
-  font-family: 'CustomFont';
+  font-family: 'CabinetGrotesk-Black';
   src: url('./assets/fonts/CabinetGrotesk-Black.otf') format('truetype'); /* Adjust the path as necessary */
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Extrabold';
+  src: url('./assets/fonts/CabinetGrotesk-Extrabold.otf') format('truetype'); /* Adjust the path as necessary */
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Thin';
+  src: url('./assets/fonts/CabinetGrotesk-Thin.otf') format('truetype'); /* Adjust the path as necessary */
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Medium';
+  src: url('./assets/fonts/CabinetGrotesk-Medium.otf') format('truetype'); /* Adjust the path as necessary */
 }
 
 body {
-  font-family: 'CustomFont', sans-serif;
+  font-family: 'CabinetGrotesk-Black', sans-serif;
+}
+
+.navbar-menu{
+  font-family: 'CabinetGrotesk-Medium', sans-serif;
+  font-weight: 100;
+  color:#ffffff90;
+}
+
+.navbar-menu li a{
+  color:#ffffff90;
+}
+
+.signup , .login {
+  color: #cececee0;
+  font-family: 'CabinetGrotesk-Black', sans-serif;
 }

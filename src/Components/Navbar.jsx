@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
-import '../Css/Navbar.css';
 import logoImage from '../../public/uptimeLogo.png';
 import Path from '../Services/Path';
+import '../Css/Navbar.css';
 
 const Navbar = () => {
   const { auth, logout } = useContext(AuthContext);
@@ -44,26 +44,30 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/" >
+        <Link to="/">
           <img src={logoImage} alt="UpStatus" />
         </Link>
-        <Link to="/" >
+        <Link to="/">
           <span>UpStatus</span>
         </Link>
       </div>
       <ul className="navbar-menu">
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to="/solutions">Solution & Services</Link></li>
-        <li><Link to="/resources">Resources</Link></li>
-        <li><Link to="/pricing">Pricing</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/">Solution & Services</Link></li>
+        <li><Link to="/">Resources</Link></li>
+        <li><Link to="/">Pricing</Link></li>
       </ul>
       <div className="navbar-buttons">
         {isAuthenticated ? (
           <>
-            {loading ? (
-              <span>Loading...</span>
-            ) : (
-              <span className="username">Welcome, {userDetails.data?.username || "User"}</span>
+            {location.pathname === '/dashboard' && (
+              <>
+                {loading ? (
+                  <span>Loading...</span>
+                ) : (
+                  <span className="username">Welcome, {userDetails?.data?.username || "User"}</span>
+                )}
+              </>
             )}
             {location.pathname === '/' && (
               <Link to="/dashboard" className="btn dashboard">Dashboard</Link>

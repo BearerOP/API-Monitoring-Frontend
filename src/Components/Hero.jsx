@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Hero = () => (
-  <div className="hero">
+  <div id='hero' className="hero">
     <div className="container">
       <h1>We mail you when your website goes down</h1>
       <p>Get notified with a radically better infrastructure monitoring platform.</p>

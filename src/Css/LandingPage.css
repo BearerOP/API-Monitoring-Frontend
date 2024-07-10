@@ -15,11 +15,13 @@ body {
 
 .hero {
   text-align: center;
+  height: 70vh;
   padding: 100px 20px;
-  background: linear-gradient(0deg, #4b2e69 0%, #0d0027 100%);
+  background: linear-gradient(0deg, #0f041a 0%, #0d0027 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .hero h1 {
