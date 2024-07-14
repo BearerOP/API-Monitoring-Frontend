@@ -1,0 +1,40 @@
+/* In your CSS file or a styled component */
+.blinker {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.blinker-up {
+    background-color: rgb(8, 150, 8);
+    animation: blink 1.4s ease infinite;
+}
+
+.blinker-down {
+    background-color: red;
+    animation: blink 1.4s ease infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: .75;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+    
+    75% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

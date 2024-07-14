@@ -16,7 +16,7 @@ const SignUp = () => {
         setLoader(true);
         setMessage(''); // Clear previous messages
         try {
-            const response = await Path.post('/user/register', {
+            const response = await Path.post('/api/register', {
                 username,
                 email,
                 password

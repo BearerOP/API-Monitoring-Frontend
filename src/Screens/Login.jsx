@@ -19,7 +19,7 @@ const Login = () => {
         setLoader(true);
         setMessage(''); // Clear previous messages
         try {
-            const response = await Path.post('/user/login', {
+            const response = await Path.post('/api/login', {
                 email,
                 password
             });

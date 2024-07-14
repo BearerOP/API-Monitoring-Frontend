@@ -16,7 +16,7 @@ const Navbar = () => {
     const fetchUserDetails = async () => {
       if (token) {
         try {
-          const response = await Path.get('/user/profile', {
+          const response = await Path.get('/api/profile', {
             headers: {
               Authorization: `Bearer ${token}`,
             },

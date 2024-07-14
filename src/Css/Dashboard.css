@@ -33,3 +33,24 @@ body {
     1px 1px 0px rgba(0, 0, 0, 0.5);
 
 }
+
+.background {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+    height: 100%;
+  }
+  
+  .content {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .MuiCard-root {
+    background-color: #1E1E1E;
+  }
+  
+  .MuiTypography-h4 {
+    color: #90caf9;
+  }
