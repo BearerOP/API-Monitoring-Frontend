@@ -31,7 +31,7 @@ import { Sheet, SheetContent, SheetTrigger } from "../Components/ui/sheet"
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { useContext } from 'react';
-
+import { Toaster } from "@/Components/ui/toaster";
 const DashboardLayout = () => {
 
   const navigate = useNavigate();
@@ -228,6 +228,7 @@ const DashboardLayout = () => {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <Outlet />
+          <Toaster />
         </main>
       </div>
     </div>

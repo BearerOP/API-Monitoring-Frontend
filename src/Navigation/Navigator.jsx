@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from '../Screens/Dashboard';
@@ -13,6 +13,9 @@ import Home from '../Screens/Home';
 import Help from '../Screens/Help';
 import Setting from '../Screens/Setting';
 import Monitor from '../Screens/Monitor';
+import ViewApi from '../Screens/ViewApi';
+import ViewAllApi from '../Screens/ViewAllApi';
+import CreateMonitor from '../Screens/CreateMonitor';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -22,26 +25,26 @@ const Navigator = () => {
     const checkToken = () => {
       const token = localStorage.getItem('token');
       if (token && !auth.isAuthenticated) {
-        login(token); // Ensure login only if not already authenticated
+        login(token);
       } else if (!token && auth.isAuthenticated) {
-        logout(); // Ensure logout if token is removed but still authenticated
+        logout();
       }
       setLoading(false);
     };
 
     checkToken();
-  }, [auth.isAuthenticated, login, logout]); // Ensure dependencies are correctly specified
+  }, [auth.isAuthenticated, login, logout]);
 
   if (loading) {
-    return <p>Loading...</p>; // Optional: Show loading indicator while checking token
+    return <p>Loading...</p>;
   }
 
   return (
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route
         path="/dashboard"
         element={
           <PrivateRoute>
@@ -49,16 +52,19 @@ const Navigator = () => {
           </PrivateRoute>
         }
       >
-        <Route index element={<Home/>} />
-        <Route path="monitor" element={<Monitor />} />
+        <Route index element={<Home />} />
+        <Route path="monitor" element={<Monitor />}>
+          <Route index element={<ViewAllApi />} />
+          <Route path="createMonitor" element={<CreateMonitor />} />
+          <Route path="viewApi" element={<ViewApi />} />
+        </Route>
         <Route path="dashboard1" element={<Dashboard />} />
         <Route path="dashboard2" element={<Dashboard2 />} />
         <Route path="dashboard3" element={<Dashboard3 />} />
         <Route path="help" element={<Help />} />
         <Route path="setting" element={<Setting />} />
-
       </Route>
-      </Routes>
+    </Routes>
   );
 };
 
