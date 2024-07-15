@@ -2,16 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import Path from '../Services/Path';
 import {
-  Card, CardContent, CardHeader, CardTitle,
+  CardHeader, CardTitle,
   CardDescription
 } from '../Components/ui/card';
 import { Button } from '@/Components/ui/button';
 import { Link, Outlet } from 'react-router-dom';
-import { MoreHorizontalIcon, PlusCircleIcon } from 'lucide-react';
-import { Table, TableBody, TableCell, TableRow } from '@/Components/ui/table';
-import '../Css/Monitor.css';
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuItem, DropdownMenuContent } from '@/Components/ui/dropdown-menu';
-import { formatDistanceToNow } from 'date-fns';
+import { PlusCircleIcon } from 'lucide-react';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/Components/ui/dialog';
 
 const Monitor = () => {
@@ -91,44 +87,7 @@ const Monitor = () => {
       return url;
     }
   };
-
-  const renderApiLogs = () => {
-    return apiLogs.map(log => {
-      const lastLog = log.logs[log.logs.length - 1];
-      const latestTimestamp = new Date(lastLog.timestamp);
-      const timeDifference = formatDistanceToNow(latestTimestamp, { addSuffix: true });
-      return (
-        <TableRow className='flex items-center justify-between' key={log._id}>
-          <TableCell className='flex items-center'>
-            <span className={`blinker ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}></span>
-            <div>
-              <div>{extractDomain(log.url)}</div>
-              <div className='text-gray-400'>{lastLog.status} • {timeDifference}</div>
-            </div>
-          </TableCell>
-          <TableCell>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  aria-haspopup="true"
-                  size="icon"
-                  variant="ghost"
-                >
-                  <MoreHorizontalIcon className="h-4 w-4" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => { setSelectedLogId(log._id); setIsDialogOpen(true); }}>Delete</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </TableCell>
-        </TableRow>
-      );
-    });
-  };
+  ;
 
   return (
     <div className="p-4">

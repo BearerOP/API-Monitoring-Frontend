@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CabinetGrotesk-Regular';
+  src: url('../src/assets/fonts/CabinetGrotesk-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @layer base {
   :root {
@@ -63,4 +69,5 @@
 
   * {
     @apply border-border;
+    font-family: 'CabinetGrotesk-Regular',sans-serif;
   }
