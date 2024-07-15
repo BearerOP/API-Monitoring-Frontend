@@ -150,24 +150,22 @@ const Monitor = () => {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          
-
           <CardHeader className="flex flex-row items-center">
-                        <div className="grid gap-2">
-                            <CardTitle>API Logs</CardTitle>
-                            <CardDescription>
-                                {lastUpdated && (
-                                    <span className="mb-4">Overall Last Checked: {new Date(lastUpdated).toLocaleString()}</span>
-                                )}
-                            </CardDescription>
-                        </div>
-                        <Button asChild variant='outline' size="sm" className="ml-auto gap-1">
-                            <Link to="createMonitor">
-                                Create Monitor
-                                <PlusCircleIcon className="h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </CardHeader>
+            <div className="grid gap-2">
+              <CardTitle>API Logs</CardTitle>
+              <CardDescription>
+                {lastUpdated && (
+                  <span className="mb-4">Overall Last Checked: {new Date(lastUpdated).toLocaleString()}</span>
+                )}
+              </CardDescription>
+            </div>
+            <Button asChild variant='outline' size="sm" className="ml-auto gap-1">
+              <Link to="createMonitor">
+                Create Monitor
+                <PlusCircleIcon className="h-4 w-4" />
+              </Link>
+            </Button>
+          </CardHeader>
           <Outlet />
         </div>
       )}

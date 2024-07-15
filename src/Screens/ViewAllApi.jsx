@@ -122,7 +122,7 @@ const ViewAllApi = () => {
                                     <span className="sr-only">Toggle menu</span>
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
+                            <DropdownMenuContent className='dark' align="end">
                                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
                                 <DropdownMenuItem>Edit</DropdownMenuItem>
                                 <DropdownMenuItem onClick={() => { setSelectedLogId(log._id); setIsDialogOpen(true); }}>Delete</DropdownMenuItem>
@@ -141,7 +141,7 @@ const ViewAllApi = () => {
             ) : (
                 <div>
                     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                        <DialogContent>
+                        <DialogContent className='dark'>
                             <DialogHeader>
                                 <DialogTitle>Are you absolutely sure?</DialogTitle>
                                 <DialogDescription>

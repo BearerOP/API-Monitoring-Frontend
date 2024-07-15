@@ -2,7 +2,7 @@ import { Button } from "../Components/ui/button"
 
 const Home = () => {
   return (<>
-    <div className="flex items-center">
+    <div className="flex items-center dark">
       <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
     </div>
     <div
