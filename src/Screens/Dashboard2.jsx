@@ -154,11 +154,11 @@ const chartConfig = {
   },
   desktop: {
     label: "Desktop",
-    color: "hsl(63.5 67.4% 14.9%)",
+    color: "hsl(var(--chart-1))",
   },
   mobile: {
     label: "Mobile",
-    color: "hsl(263.5 67.4% 34.9%)",
+    color: "hsl(var(--chart-2))",
     
   },
 };
@@ -184,7 +184,7 @@ function Dashboard2() {
     <Card className="dark">
       <CardHeader className="flex items-center gap-2 space-y-0 py-5 sm:flex-row">
         <div className="grid flex-1 gap-1 text-center sm:text-left">
-          <CardTitle className='text-3xl hover:subpixel-antialiased'>Area Chart - Interactive</CardTitle>
+          <CardTitle className='text-3xl hover:subpixel-antialiased'>Response Time Chart</CardTitle>
           <CardDescription>
             Showing total visitors for the last 3 months
           </CardDescription>

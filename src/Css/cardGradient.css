@@ -1,0 +1,32 @@
+.parentCard {
+    width: 303px;
+    height: 400px;
+    background: #18181b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px #313136 solid;
+    margin-left: 10px;
+}
+
+.childCard {
+    margin-bottom:-60px ;
+    margin-left: -30px;
+    width: .1px;
+    height: .1px;
+    background: rgba(120, 4, 228, 0);
+    border-radius: 50%;
+    box-shadow: -100px 170px 265px 150px #6c5fccee;
+}
+
+.grandChildCard {
+    margin-left: 10px;
+    margin-top: -70px;
+    width: .1px;
+    height: .1px;
+    background: rgba(120, 4, 228, 0);
+    border-radius: 50%;
+    box-shadow: 0px -200px 200px 150px #6c5fcced;
+}

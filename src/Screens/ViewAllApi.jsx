@@ -1,17 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import Path from '../Services/Path';
 import {
     Card, CardContent
 } from '../Components/ui/card';
 import { Button } from '@/Components/ui/button';
-import { MoreHorizontalIcon } from 'lucide-react';
+import { ArrowUpRightIcon, MoreHorizontalIcon } from 'lucide-react';
 import { Table, TableBody, TableCell, TableRow } from '@/Components/ui/table';
-import '../Css/Monitor.css';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuItem, DropdownMenuContent } from '@/Components/ui/dropdown-menu';
 import { formatDistanceToNow } from 'date-fns';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/Components/ui/dialog'; // Ensure correct import paths
 
+import '../Css/Monitor.css';
 
 const ViewAllApi = () => {
     const { auth } = useContext(AuthContext);
@@ -102,12 +103,22 @@ const ViewAllApi = () => {
             const latestTimestamp = new Date(lastLog.timestamp);
             const timeDifference = formatDistanceToNow(latestTimestamp, { addSuffix: true });
             return (
-                <TableRow className='flex items-center justify-between ' key={log._id}>
+                <TableRow className='flex items-center justify-between' key={log._id}>
                     <TableCell className='flex items-center'>
-                        <span className={`blinker ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}></span>
+                        <span className={`blinker mx-4  ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
+                            <span className={`blinkerChild ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
+                            </span>
+                        </span>
                         <div>
-                            <div className="">{extractDomain(log.url)}</div>
-                            <div className='text-gray-400'>{lastLog.status} • {timeDifference}</div>
+                            <div className='flex gap-1.5 ml-4 align-bottom '>
+                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className=" hover:cursor-pointer hover:underline  hover:underline-offset-4 ">
+                                    {extractDomain(log.url)}
+                                </Link>
+                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className='flex align-super justify-center  ' >
+                                    <ArrowUpRightIcon className='bounce pb-2 ' />
+                                </Link>
+                            </div>
+                            <div className='text-gray-400 ml-4'>{lastLog.status} • {timeDifference}</div>
                         </div>
                     </TableCell>
                     <TableCell>
@@ -154,10 +165,10 @@ const ViewAllApi = () => {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    <Card className="mb-4">
-                        <CardContent className="overflow-auto" style={{ maxHeight: '535px' }}>
-                            <Table>
-                                <TableBody>
+                    <Card className="mb-4" style={{ padding: 0 }}>
+                        <CardContent className="overflow-auto" style={{ maxHeight: '535px', padding: 0 }}>
+                            <Table style={{ padding: 0 }}>
+                                <TableBody style={{ padding: 0 }}>
                                     {renderApiLogs()}
                                 </TableBody>
                             </Table>

@@ -56,7 +56,7 @@ const Navigator = () => {
         <Route path="monitor" element={<Monitor />}>
           <Route index element={<ViewAllApi />} />
           <Route path="createMonitor" element={<CreateMonitor />} />
-          <Route path="viewApi" element={<ViewApi />} />
+          <Route path="viewApi/:logId" element={<ViewApi />} />
         </Route>
         <Route path="dashboard1" element={<Dashboard />} />
         <Route path="dashboard2" element={<Dashboard2 />} />

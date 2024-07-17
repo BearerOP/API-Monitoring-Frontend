@@ -8,6 +8,42 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'CabinetGrotesk-Bold';
+  src: url('../src/assets/fonts/CabinetGrotesk-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Extrabold';
+  src: url('../src/assets/fonts/CabinetGrotesk-Extrabold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Exatralight';
+  src: url('../src/assets/fonts/CabinetGrotesk-Extralight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Light';
+  src: url('../src/assets/fonts/CabinetGrotesk-Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Medium';
+  src: url('../src/assets/fonts/CabinetGrotesk-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CabinetGrotesk-Thin';
+  src: url('../src/assets/fonts/CabinetGrotesk-Thin.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @layer base {
   :root {
@@ -36,6 +72,13 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --font-regular: 'CabinetGrotesk-Regular', sans-serif;
+    --font-bold: 'CabinetGrotesk-Bold', sans-serif;
+    --font-extraBold: 'CabinetGrotesk-Extrabold', sans-serif;
+    --font-extraLight: 'CabinetGrotesk-Extralight', sans-serif;
+    --font-light: 'CabinetGrotesk-Light', sans-serif;
+    --font-medium: 'CabinetGrotesk-Medium', sans-serif;
+    --font-thin: 'CabinetGrotesk-Thin', sans-serif;
   }
 
   .dark {
@@ -58,7 +101,7 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 263.4 70% 50.4%;
-    --chart-1: 220 70% 50%;
+    --chart-1: 232 65% 89%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
@@ -66,8 +109,53 @@
   }
 }
 
-
   * {
     @apply border-border;
     font-family: 'CabinetGrotesk-Regular',sans-serif;
+  }
+
+  body {
+    font-family: var(--font-regular);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bold);
+  }
+  
+  p {
+    font-family: var(--font-regular);
+  }
+  
+  /* a {
+    font-family: var(--font-medium);
+    text-decoration: none;
+    transition: text-decoration 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+   */
+  strong {
+    font-family: var(--font-extraBold);
+  }
+  
+  blockquote {
+    font-family: var(--font-thin);
+  }
+  
+  code {
+    font-family: var(--font-medium);
+  }
+  
+  small {
+    font-family: var(--font-extraLight);
+  }
+  
+  ul, ol {
+    font-family: var(--font-regular);
+  }
+  
+  table {
+    font-family: var(--font-regular);
   }
