@@ -105,7 +105,7 @@ const ViewAllApi = () => {
             return (
                 <TableRow className='flex items-center justify-between' key={log._id}>
                     <TableCell className='flex items-center'>
-                        <span className={`blinker mx-4  ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
+                        <span className={`blinker w-1/2 h-1/2  ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
                             <span className={`blinkerChild ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
                             </span>
                         </span>

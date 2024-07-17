@@ -1,17 +1,15 @@
 /* In your CSS file or a styled component */
 .blinker {
-    height: 10px;
-    width: 10px;
     border-radius: 50%;
     display: inline-flex;
     height: 6px;
     width: 6px;
     margin-left: 10px;
     margin-right: 10px;
-    animation: ping 1.25s cubic-bezier(0, 0, 0.2, 1) infinite;
+    animation: blink 1.25s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 .blinkerChild {
-    height: 8px;
+    height: 16px;
     width: 16px;
     border-radius: 50%;
     display: inline-flex;
@@ -45,16 +43,9 @@
         opacity: 1;
     }
 
-    25% {
-        opacity: .75;
-    }
 
     50% {
         opacity: 0.5;
-    }
-
-    75% {
-        opacity: 0.25;
     }
 
     100% {
