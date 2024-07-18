@@ -1,66 +1,67 @@
-/* In your CSS file or a styled component */
-.blinker {
-    border-radius: 50%;
-    display: inline-flex;
-    height: 6px;
-    width: 6px;
-    margin-left: 10px;
-    margin-right: 10px;
-    animation: blink 1.25s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-.blinkerChild {
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-self: center;
-    align-self: center;
-    animation: ping 1.25s ease-out infinite;
-}
-
 .blinker-up {
-    background-color: rgb(8, 150, 8);
-    /* animation: blink 1.4s ease infinite; */
-}
-
-.blinker-down {
-    background-color: red;
-
-}
-
-.bounce{
-    transition: all .35s ease-in-out;
-
-}
-
-.bounce:hover {
-    transform: scale(2);
-    transform: translate(2.5px, -2.5px)
-}
-
-@keyframes blink {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blinker-up::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 25px;
+    animation: loop-up 1.3s 0s infinite;
+  }
+  
+  @keyframes loop-up {
     0% {
-        opacity: 1;
+      background-color: rgb(0, 255, 0);
+      width: 1px;
+      height: 1px;
     }
-
-
-    50% {
-        opacity: 0.5;
-    }
-
     100% {
-        opacity: 1;
+      background-color: rgba(0, 255, 0, 0);
+      width: 30px;
+      height: 30px;
     }
-}
-
-@keyframes ping {
-
-    75%,
+  }
+.blinker-down {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blinker-down::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 25px;
+    animation: loop-down 1.3s 0s infinite;
+  }
+  
+  @keyframes loop-down {
+    0% {
+      background-color: rgb(255, 0, 0);
+      width: 1px;
+      height: 1px;
+    }
     100% {
-        transform: scale(2);;
-        opacity: 0;
+      background-color: rgba(0, 255, 0, 0);
+      width: 30px;
+      height: 30px;
     }
-}
+  }
 
 .buttonArrow {
     line-height: 1;
