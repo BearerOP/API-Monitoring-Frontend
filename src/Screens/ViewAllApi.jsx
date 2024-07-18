@@ -111,12 +111,22 @@ const ViewAllApi = () => {
                         </span>
                         <div>
                             <div className='flex gap-1.5 ml-4 align-bottom '>
-                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className=" hover:cursor-pointer hover:underline  hover:underline-offset-4 ">
+                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className=" hover:cursor-pointer hover:underline  hover:underline-offset-4 place-self-center">
                                     {extractDomain(log.url)}
                                 </Link>
-                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className='flex align-super justify-center  ' >
-                                    <ArrowUpRightIcon className='bounce pb-2 ' />
+                                {/* <Link to={`/dashboard/monitor/viewApi/${log._id}`} className='flex align-super justify-center  ' > */}
+                                    <Link to={`/dashboard/monitor/viewApi/${log._id}`} className="flex align-center justify-center buttonArrow" >
+                                        <span className="button__icon-wrapper">
+                                            <svg width="10" className="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                            </svg>
+
+                                            <svg className="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                            </svg>
+                                        </span>
                                 </Link>
+                                    {/* </Link> */}
                             </div>
                             <div className='text-gray-400 ml-4'>{lastLog.status} • {timeDifference}</div>
                         </div>
