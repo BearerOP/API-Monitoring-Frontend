@@ -2,16 +2,23 @@
 import React from 'react';
 import '../Css/cardGradient.css'
 
-const Cards = () => {
+const Cards = ({ text }) => {
 
   return (
-
-    <div className='parentCard w-75 max-width-96'>
-      <div className='childCard'>
-        <div className='grandChildCard'>
+    <div className='flex justify-around'>
+        <div className='parentCard w-75 max-width-96 '>
+          <div className='childCard'>
+          <h1 className='text-xl'>
+            {text}
+            {/* {text.heading}
+            {text.value} */}
+          </h1>
+            <div className='grandChildCard'>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
+
   )
 };
 

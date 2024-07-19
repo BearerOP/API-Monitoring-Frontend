@@ -47,7 +47,7 @@ const ViewApi = () => {
         <div>
             <h1>Log Details for {logDetails.data.url}</h1>
             {/* Render log details */}
-            <Dashboard2/>
+            <Dashboard2 logDetails={logDetails.data}/>
             {/* <pre>{JSON.stringify(logDetails, null, 2)}</pre> */}
         </div>
     );

@@ -1,3 +1,4 @@
+import Cards from "@/Components/Cards";
 import { Button } from "../Components/ui/button"
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <div className="flex items-center dark">
       <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
     </div>
+    <Cards text={'jaadugar hu m'} />
     <div
       className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1"
     >

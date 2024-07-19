@@ -108,6 +108,6 @@
   }
   
   .buttonArrow:hover .button__icon-svg--copy {
-    transition: transform .3s ease-in-out .1s;
+    transition: transform .7s ease-in-out .1s;
     transform: translate(0);
   }

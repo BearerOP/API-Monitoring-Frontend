@@ -106,15 +106,12 @@ const ViewAllApi = () => {
                 <TableRow className='flex items-center justify-between' key={log._id}>
                     <TableCell className='flex items-center'>
                         <span className={`mx-3 ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
-                            {/* <span className={`blinkerChild ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
-                            </span> */}
                         </span>
                         <div>
                             <div className='flex gap-1.5 ml-4 align-bottom '>
                                 <Link to={`/dashboard/monitor/viewApi/${log._id}`} className=" hover:cursor-pointer hover:underline  hover:underline-offset-4 place-self-center">
                                     {extractDomain(log.url)}
                                 </Link>
-                                {/* <Link to={`/dashboard/monitor/viewApi/${log._id}`} className='flex align-super justify-center  ' > */}
                                     <Link to={`/dashboard/monitor/viewApi/${log._id}`} className="flex align-center justify-center buttonArrow" >
                                         <span className="button__icon-wrapper">
                                             <svg width="10" className="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
@@ -126,7 +123,6 @@ const ViewAllApi = () => {
                                             </svg>
                                         </span>
                                 </Link>
-                                    {/* </Link> */}
                             </div>
                             <div className='text-gray-400 ml-4'>{lastLog.status} • {timeDifference}</div>
                         </div>

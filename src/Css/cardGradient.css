@@ -8,7 +8,6 @@
     overflow: hidden;
     border-radius: 1rem;
     border: 1px #313136 solid;
-    margin-left: 10px;
 }
 
 .childCard {
@@ -29,4 +28,8 @@
     background: rgba(120, 4, 228, 0);
     border-radius: 50%;
     box-shadow: 0px -200px 200px 150px #6c5fcced;
+}
+span {
+    width: 100%;
+    
 }
