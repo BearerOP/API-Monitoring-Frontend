@@ -111,3 +111,22 @@
     transition: transform .7s ease-in-out .1s;
     transform: translate(0);
   }
+
+/* WebKit Browsers */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #15012100; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(41, 13, 86); /* Color of the thumb */
+  border-radius: 10px; /* Rounded corners */
+  border: .5px solid #9023cf68; /* Border around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9939da; /* Color of the thumb on hover */
+}

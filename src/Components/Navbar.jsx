@@ -4,6 +4,7 @@ import { AuthContext } from '../Context/AuthContext';
 import logoImage from '../../public/uptimeLogo.png';
 import Path from '../Services/Path';
 import '../Css/Navbar.css';
+import Loader from './Loader';
 
 const Navbar = () => {
   const { auth, logout } = useContext(AuthContext);
@@ -63,7 +64,7 @@ const Navbar = () => {
             {location.pathname === '/dashboard' && (
               <>
                 {loading ? (
-                  <span>Loading...</span>
+                  <Loader/>
                 ) : (
                   <span className="username">Welcome, {userDetails?.data?.username || "User"}</span>
                 )}

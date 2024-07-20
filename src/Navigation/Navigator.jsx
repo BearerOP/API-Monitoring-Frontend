@@ -16,6 +16,7 @@ import Monitor from '../Screens/Monitor';
 import ViewApi from '../Screens/ViewApi';
 import ViewAllApi from '../Screens/ViewAllApi';
 import CreateMonitor from '../Screens/CreateMonitor';
+import Loader from '@/Components/Loader';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -36,7 +37,7 @@ const Navigator = () => {
   }, [auth.isAuthenticated, login, logout]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader/>;
   }
 
   return (

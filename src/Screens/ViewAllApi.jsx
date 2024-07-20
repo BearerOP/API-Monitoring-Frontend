@@ -6,13 +6,16 @@ import {
     Card, CardContent
 } from '../Components/ui/card';
 import { Button } from '@/Components/ui/button';
-import { ArrowUpRightIcon, MoreHorizontalIcon } from 'lucide-react';
+import { ArrowUpRightIcon, MoreHorizontalIcon, TargetIcon } from 'lucide-react';
 import { Table, TableBody, TableCell, TableRow } from '@/Components/ui/table';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuItem, DropdownMenuContent } from '@/Components/ui/dropdown-menu';
 import { formatDistanceToNow } from 'date-fns';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/Components/ui/dialog'; // Ensure correct import paths
 
 import '../Css/Monitor.css';
+import Loader from '@/Components/Loader';
+import { SkeletonCard } from '@/Components/Skeleton';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/Components/ui/tooltip';
 
 const ViewAllApi = () => {
     const { auth } = useContext(AuthContext);
@@ -104,30 +107,44 @@ const ViewAllApi = () => {
             const timeDifference = formatDistanceToNow(latestTimestamp, { addSuffix: true });
             return (
                 <TableRow className='flex items-center justify-between' key={log._id}>
-                    <TableCell className='flex items-center'>
+                    <TableCell className='flex items-center w-2/5'>
                         <span className={`mx-3 ${lastLog.status === 'Up' ? 'blinker-up' : 'blinker-down'}`}>
                         </span>
                         <div>
-                            <div className='flex gap-1.5 ml-4 align-bottom '>
+                            <div className='flex gap-1.5 ml-4 align-bottom'>
                                 <Link to={`/dashboard/monitor/viewApi/${log._id}`} className=" hover:cursor-pointer hover:underline  hover:underline-offset-4 place-self-center">
                                     {extractDomain(log.url)}
                                 </Link>
-                                    <Link to={`/dashboard/monitor/viewApi/${log._id}`} className="flex align-center justify-center buttonArrow" >
-                                        <span className="button__icon-wrapper">
-                                            <svg width="10" className="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-                                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-                                            </svg>
+                                <Link to={`/dashboard/monitor/viewApi/${log._id}`} className="flex align-center justify-center buttonArrow" >
+                                    <span className="button__icon-wrapper">
+                                        <svg width="10" className="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                                            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                        </svg>
 
-                                            <svg className="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
-                                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
-                                            </svg>
-                                        </span>
+                                        <svg className="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                                            <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                        </svg>
+                                    </span>
                                 </Link>
                             </div>
                             <div className='text-gray-400 ml-4'>{lastLog.status} • {timeDifference}</div>
                         </div>
                     </TableCell>
+                    <TableCell className='flex gap-x-2 items-center justify-center '>
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger className='flex gap-x-2 items-center justify-center'>
+                                    <TargetIcon className='size-4 text-violet-500' />
+                                    <p>4m</p>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    Checked every 4 minutes
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </TableCell>
                     <TableCell>
+
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button
@@ -152,9 +169,9 @@ const ViewAllApi = () => {
     };
 
     return (
-        <div className="p-4">
+        <div className="p-4 scrollColor">
             {loading ? (
-                <p>Loading...</p>
+                <SkeletonCard />
             ) : (
                 <div>
                     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

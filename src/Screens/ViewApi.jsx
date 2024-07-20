@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import Path from '../Services/Path';
 import Dashboard2 from './Dashboard2';
+import Loader from '@/Components/Loader';
 
 const ViewApi = () => {
     const { logId } = useParams();
@@ -36,12 +37,12 @@ const ViewApi = () => {
     }, [token, logId]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loader/>;
     }
 
-    // if (!logDetails) {
-    //     return <p>No log details found.</p>;
-    // }
+    if (!logDetails) {
+        return <p>No log details found.</p>;
+    }
 
     return (
         <div>

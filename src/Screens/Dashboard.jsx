@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, CircularProgress, Alert } from '@mui/material';
+import { Container, Alert } from '@mui/material';
 import Path from '../Services/Path';
 import Navbar from '../Components/Navbar';
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
@@ -26,6 +26,7 @@ import {
 } from '../Components/ui/select';
 import '../Css/Dashboard.css';
 import { useNavigate } from 'react-router-dom';
+import Loader from '@/Components/Loader';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
@@ -187,11 +188,7 @@ const Dashboard = () => {
   });
 
   if (loading) {
-    return (
-      <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <CircularProgress />
-      </Container>
-    );
+    return <Loader/>
   }
 
   if (error) {

@@ -9,6 +9,7 @@ import { Button } from '@/Components/ui/button';
 import { Link, Outlet } from 'react-router-dom';
 import { PlusCircleIcon } from 'lucide-react';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/Components/ui/dialog';
+import Loader from '@/Components/Loader';
 
 const Monitor = () => {
   const { auth } = useContext(AuthContext);
@@ -92,8 +93,8 @@ const Monitor = () => {
   return (
     <div className="p-4">
       {loading ? (
-        <p>Loading...</p>
-      ) : (
+      <Loader/>
+    ) : (
         <div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogContent>
@@ -111,14 +112,16 @@ const Monitor = () => {
           </Dialog>
           <CardHeader className="flex flex-row items-center">
             <div className="grid gap-2">
-              <CardTitle>API Logs</CardTitle>
+            <div className="mx-auto grid w-full max-w-6xl gap-2">
+                <h1 className="text-3xl font-semibold">API Logs</h1>
+            </div>
               <CardDescription>
                 {lastUpdated && (
                   <span className="mb-4">Overall Last Checked: {new Date(lastUpdated).toLocaleString()}</span>
                 )}
               </CardDescription>
             </div>
-            <Button asChild variant='outline' size="sm" className="ml-auto gap-1">
+            <Button asChild variant='outline' size="sm" className="ml-auto gap-1 h-12">
               <Link to="createMonitor">
                 Create Monitor
                 <PlusCircleIcon className="h-4 w-4" />
