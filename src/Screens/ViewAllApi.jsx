@@ -135,10 +135,10 @@ const ViewAllApi = () => {
                             <Tooltip>
                                 <TooltipTrigger className='flex gap-x-2 items-center justify-center'>
                                     <TargetIcon className='size-4 text-violet-500' />
-                                    <p>4m</p>
+                                    <p>5m</p>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    Checked every 4 minutes
+                                    Checked every 5 minutes
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
