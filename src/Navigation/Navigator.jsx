@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { Profiler, useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from '../Screens/Dashboard';
 import Dashboard2 from '../Screens/Dashboard2';
-import Dashboard3 from '../Screens/Dashboard3';
 import Login from '../Screens/Login';
 import SignUp from '../Screens/SignUp';
 import LandingPage from '../Screens/LandingPage';
@@ -11,12 +10,15 @@ import PrivateRoute from '../Components/PrivateRoutes';
 import DashboardLayout from '@/Layouts/DashboardLayout';
 import Home from '../Screens/Home';
 import Help from '../Screens/Help';
-import Setting from '../Screens/Setting';
 import Monitor from '../Screens/Monitor';
 import ViewApi from '../Screens/ViewApi';
 import ViewAllApi from '../Screens/ViewAllApi';
 import CreateMonitor from '../Screens/CreateMonitor';
 import Loader from '@/Components/Loader';
+import SettingsLayout from '@/Layouts/SettingsLayout';
+import SettingsProfilePage from '@/Screens/SettingsProfilePage';
+import SettingsAccountPage from '@/Screens/SettingsAccountPage';
+import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -37,7 +39,7 @@ const Navigator = () => {
   }, [auth.isAuthenticated, login, logout]);
 
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   return (
@@ -61,9 +63,12 @@ const Navigator = () => {
         </Route>
         <Route path="dashboard1" element={<Dashboard />} />
         <Route path="dashboard2" element={<Dashboard2 />} />
-        <Route path="dashboard3" element={<Dashboard3 />} />
         <Route path="help" element={<Help />} />
-        <Route path="setting" element={<Setting />} />
+        <Route path="setting" element={<SettingsLayout />}>
+          <Route index element={<SettingsProfilePage />} />
+          <Route path='account' element={<SettingsAccountPage />} />
+          <Route path='notifications' element={<SettingsNotificationsPage />} />
+        </Route>
       </Route>
     </Routes>
   );
