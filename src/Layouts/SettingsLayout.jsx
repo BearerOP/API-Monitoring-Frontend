@@ -22,6 +22,10 @@ const sidebarNavItems = [
     title: "Notifications",
     to: "notifications",
   },
+  {
+    title: "Security & Password",
+    to: "security",
+  },
 ];
 
 function SettingsLayout() {
@@ -65,7 +69,7 @@ function SettingsLayout() {
                     cn(
                       buttonVariants({ variant: "ghost" }),
                       isActive
-                        ? "bg-muted hover:bg-muted text-[#7547c0]"
+                        ? "bg-muted hover:bg-muted hover:text-[#7547c0] text-[#7547c0]"
                         : "hover:bg-transparent hover:text-[#7547c0] hover:underline",
                       "justify-start"
                     )

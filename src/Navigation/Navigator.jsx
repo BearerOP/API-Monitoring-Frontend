@@ -19,6 +19,7 @@ import SettingsLayout from '@/Layouts/SettingsLayout';
 import SettingsProfilePage from '@/Screens/SettingsProfilePage';
 import SettingsAccountPage from '@/Screens/SettingsAccountPage';
 import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
+import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -68,6 +69,7 @@ const Navigator = () => {
           <Route index element={<SettingsProfilePage />} />
           <Route path='account' element={<SettingsAccountPage />} />
           <Route path='notifications' element={<SettingsNotificationsPage />} />
+          <Route path='security' element={<SettingsSecurityPage />} />
         </Route>
       </Route>
     </Routes>
