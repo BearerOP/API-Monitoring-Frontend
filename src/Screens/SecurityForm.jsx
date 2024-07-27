@@ -19,9 +19,6 @@ import axios from "axios";
 import Path from "@/Services/Path";
 
 const securityFormSchema = z.object({
-  currentPassword: z.string().min(8, {
-    message: "Current password must be at least 8 characters.",
-  }),
   newPassword: z
     .string()
     .min(8, {
@@ -46,22 +43,25 @@ export default function SecurityForm() {
 
   async function onSubmit(data) {
     try {
-        // console.log(
-        //     data
-        // );
-      const response = await Path.put("/api/profile/password/update", {
+      const response = await Path.put("/profile/password/update", {
         new_password: data.newPassword,
       });
 
-      console.log(response);
-
-      if (response.success) {
-        // console.log(response);
+      if (response.data.success) {
         toast({
           title: "Password changed successfully!",
           description: (
             <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-              <code className="text-white">{JSON.stringify(response, null, 2)}</code>
+              <code className="text-white">{JSON.stringify(response.data, null, 2)}</code>
+            </pre>
+          ),
+        });
+      } else {
+        toast({
+          title: "Error changing password",
+          description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+              <code className="text-white">{response.data.message || "Unknown error"}</code>
             </pre>
           ),
         });
@@ -81,19 +81,6 @@ export default function SecurityForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="currentPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Current Password</FormLabel>
-              <FormControl>
-                <Input type="password" placeholder="Current Password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <FormField
           control={form.control}
           name="newPassword"
