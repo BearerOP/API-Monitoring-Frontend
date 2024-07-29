@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -15,8 +15,8 @@ import {
 } from "@/Components/ui/form";
 import { Input } from "@/Components/ui/input";
 import { toast } from "@/Components/ui/use-toast";
-import axios from "axios";
 import Path from "@/Services/Path";
+import Spinner from "@/Components/Spinner"; // Import the Spinner component
 
 const securityFormSchema = z.object({
   newPassword: z
@@ -36,45 +36,38 @@ const securityFormSchema = z.object({
 });
 
 export default function SecurityForm() {
+  const [loading, setLoading] = useState(false);
   const form = useForm({
     resolver: zodResolver(securityFormSchema),
     mode: "onChange",
   });
 
   async function onSubmit(data) {
+    setLoading(true);
     try {
-      const response = await Path.put("/profile/password/update", {
+      const response = await Path.put("/api/profile/password/update", {
         new_password: data.newPassword,
       });
 
       if (response.data.success) {
         toast({
-          title: "Password changed successfully!",
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-              <code className="text-white">{JSON.stringify(response.data, null, 2)}</code>
-            </pre>
-          ),
+          title: "Password Updated successfully!",
         });
+        form.reset({
+          newPassword: "",
+          confirmPassword: ""
+        }); // Clear the form inputs
       } else {
         toast({
           title: "Error changing password",
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-              <code className="text-white">{response.data.message || "Unknown error"}</code>
-            </pre>
-          ),
         });
       }
     } catch (error) {
       toast({
         title: "Error changing password",
-        description: (
-          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-            <code className="text-white">{error.response?.data?.message || error.message}</code>
-          </pre>
-        ),
       });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -107,7 +100,14 @@ export default function SecurityForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Change Password</Button>
+        <Button type="submit" disabled={loading} className="relative w-36">
+          {loading && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Spinner />
+            </div>
+          )}
+          {loading ? "" : "Change Password"}
+        </Button>
       </form>
     </Form>
   );
