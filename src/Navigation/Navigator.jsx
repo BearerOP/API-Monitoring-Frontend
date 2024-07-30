@@ -20,6 +20,7 @@ import SettingsProfilePage from '@/Screens/SettingsProfilePage';
 import SettingsAccountPage from '@/Screens/SettingsAccountPage';
 import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
+import NotFound from '@/Screens/NotFound';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -73,6 +74,7 @@ const Navigator = () => {
           <Route path='security' element={<SettingsSecurityPage />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} /> {/* 404 route */}
     </Routes>
   );
 };
