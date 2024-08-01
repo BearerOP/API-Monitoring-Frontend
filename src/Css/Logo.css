@@ -1,0 +1,29 @@
+/* Logo.css */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    background: linear-gradient(to bottom, #0a0217, #3e1261); /* Gradient background similar to the image */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 36px; /* Adjust the font size as needed */
+    color: white; /* Font color */
+    font-family: 'Noto Sans', Arial, sans-serif; /* Using Noto Sans font */
+    text-align: center;
+    transition: all ease-in-out 500ms;
+}
+
+.logo-container:hover {
+    box-shadow: 0 4px 6px rgba(195, 161, 161, 0.1); /* Subtle shadow for depth */
+    transform: translateY(-5px); /* Scale up on hover */
+}
+
+.logo-text {
+    background: linear-gradient(to bottom, #8f21cf, #ecccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    padding-bottom: 5px;
+}

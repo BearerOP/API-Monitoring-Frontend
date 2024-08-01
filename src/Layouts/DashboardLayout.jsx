@@ -32,6 +32,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { useContext } from 'react';
 import { Toaster } from "@/Components/ui/toaster";
+import Logo from '@/Components/Logo';
 const DashboardLayout = () => {
 
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const DashboardLayout = () => {
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <NavLink to='/' className="flex items-center gap-2 font-semibold">
-              <Package2 className="h-6 w-6" />
+              <Logo/>
               <h1 className="text-2xl">UpStatus</h1>
             </NavLink>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">

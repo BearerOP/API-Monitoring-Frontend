@@ -5,6 +5,7 @@ import logoImage from '../../public/uptimeLogo.png';
 import Path from '../Services/Path';
 import '../Css/Navbar.css';
 import Loader from './Loader';
+import Logo from './Logo';
 
 const Navbar = () => {
   const { auth, logout } = useContext(AuthContext);
@@ -45,12 +46,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">
+        <Logo/>
+        {/* <Link to="/">
           <img src={logoImage} alt="UpStatus" />
         </Link>
         <Link to="/">
           <span>UpStatus</span>
-        </Link>
+        </Link> */}
       </div>
       <ul className="navbar-menu">
         <li><Link to="/">Home</Link></li>

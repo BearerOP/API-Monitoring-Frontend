@@ -1,4 +1,4 @@
-import React, { Profiler, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from '../Screens/Dashboard';
@@ -22,7 +22,6 @@ import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
 import { Header76 } from '@/Screens/Gallery';
-
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
   const [loading, setLoading] = useState(true);
