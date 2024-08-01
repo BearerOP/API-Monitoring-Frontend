@@ -21,6 +21,7 @@ import SettingsAccountPage from '@/Screens/SettingsAccountPage';
 import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
+import { Header76 } from '@/Screens/Gallery';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -74,6 +75,7 @@ const Navigator = () => {
           <Route path='security' element={<SettingsSecurityPage />} />
         </Route>
       </Route>
+      <Route path="/gallery" element={<Header76 />} />
       <Route path="*" element={<NotFound />} /> {/* 404 route */}
     </Routes>
   );

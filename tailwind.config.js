@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+    "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}"
   ],
   prefix: "",
   theme: {
@@ -73,5 +74,6 @@ module.exports = {
       },
     },
   },
+  presets: [require("@relume_io/relume-tailwind")],
   plugins: [require("tailwindcss-animate")],
 }
