@@ -22,6 +22,7 @@ import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
 import { Header76 } from '@/Screens/Gallery';
+import Logo from '@/Components/Logo';
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -75,6 +76,7 @@ const Navigator = () => {
         </Route>
       </Route>
       <Route path="/gallery" element={<Header76 />} />
+      <Route path="/logo" element={<Logo />} />
       <Route path="*" element={<NotFound />} /> {/* 404 route */}
     </Routes>
   );
