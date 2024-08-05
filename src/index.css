@@ -112,51 +112,5 @@
 
   * {
     @apply border-border;
-    font-family: 'CabinetGrotesk-Regular',sans-serif;
-  }
-
-  body {
-    font-family: var(--font-regular);
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-bold);
-  }
-  
-  p {
-    font-family: var(--font-regular);
-  }
-  
-  /* a {
-    font-family: var(--font-medium);
-    text-decoration: none;
-    transition: text-decoration 0.3s ease-in-out;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-   */
-  strong {
-    font-family: var(--font-extraBold);
-  }
-  
-  blockquote {
-    font-family: var(--font-thin);
-  }
-  
-  code {
-    font-family: var(--font-medium);
-  }
-  
-  small {
-    font-family: var(--font-extraLight);
-  }
-  
-  ul, ol {
-    font-family: var(--font-regular);
-  }
-  
-  table {
-    font-family: var(--font-regular);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }

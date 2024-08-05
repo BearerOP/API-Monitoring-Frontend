@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Dashboard from '../Screens/Dashboard';
 import Dashboard2 from '../Screens/Dashboard2';
 import Login from '../Screens/Login';
@@ -23,9 +24,11 @@ import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
 import { Header76 } from '@/Screens/Gallery';
 import Logo from '@/Components/Logo';
+
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const checkToken = () => {
@@ -46,39 +49,51 @@ const Navigator = () => {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      {/* <Route path="/login" element={<Login />} /> */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <DashboardLayout />
-          </PrivateRoute>
-        }
+    <AnimatePresence>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 0.3, // Duration of the transition in seconds
+          ease: "easeInOut" // Easing function for smooth in and out effect
+        }}
       >
-        <Route index element={<Home />} />
-        <Route path="monitor" element={<Monitor />}>
-          <Route index element={<ViewAllApi />} />
-          <Route path="createMonitor" element={<CreateMonitor />} />
-          <Route path="viewApi/:logId" element={<ViewApi />} />
-        </Route>
-        <Route path="dashboard1" element={<Dashboard />} />
-        <Route path="dashboard2" element={<Dashboard2 />} />
-        <Route path="help" element={<Help />} />
-        <Route path="setting" element={<SettingsLayout />}>
-          <Route index element={<SettingsProfilePage />} />
-          <Route path='account' element={<SettingsAccountPage />} />
-          <Route path='notifications' element={<SettingsNotificationsPage />} />
-          <Route path='security' element={<SettingsSecurityPage />} />
-        </Route>
-      </Route>
-      <Route path="/gallery" element={<Header76 />} />
-      <Route path="/logo" element={<Logo />} />
-      <Route path="*" element={<NotFound />} /> {/* 404 route */}
-    </Routes>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <DashboardLayout />
+              </PrivateRoute>
+            }
+          >
+            <Route index element={<Home />} />
+            <Route path="monitor" element={<Monitor />}>
+              <Route index element={<ViewAllApi />} />
+              <Route path="createMonitor" element={<CreateMonitor />} />
+              <Route path="viewApi/:logId" element={<ViewApi />} />
+            </Route>
+            <Route path="dashboard1" element={<Dashboard />} />
+            <Route path="dashboard2" element={<Dashboard2 />} />
+            <Route path="help" element={<Help />} />
+            <Route path="setting" element={<SettingsLayout />}>
+              <Route index element={<SettingsProfilePage />} />
+              <Route path='account' element={<SettingsAccountPage />} />
+              <Route path='notifications' element={<SettingsNotificationsPage />} />
+              <Route path='security' element={<SettingsSecurityPage />} />
+            </Route>
+          </Route>
+          <Route path="/gallery" element={<Header76 />} />
+          <Route path="/logo" element={<Logo />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
