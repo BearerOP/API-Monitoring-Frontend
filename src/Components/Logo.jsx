@@ -18,7 +18,7 @@ const Logo = () => {
                         to="/"
                         className="logo-text"
                     >
-                        अ 
+                        स
                     </Link>
                 </span>
             </div>

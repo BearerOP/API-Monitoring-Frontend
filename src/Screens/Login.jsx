@@ -34,9 +34,7 @@ export default function Login() {
     setMessage(''); // Clear previous messages
 
     try {
-      console.log('hiih');
       const response = await Path.post('/api/login', { email, password });
-      // console.log(response);
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         login(response.data.token); // Assuming login function sets isLoggedIn state to true
@@ -53,7 +51,7 @@ export default function Login() {
             height: '90px'
           }
         });
-        navigate('/dashboard');
+        navigate('/');
       } else {
         setMessage(response.data.message); // Server-side error message
       }

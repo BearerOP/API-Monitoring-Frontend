@@ -129,7 +129,7 @@ const FloatingNav = ({ className }) => {
                 {location.pathname === '/' && (
                   <Link to="/dashboard">
                     <HoverBorderGradient
-                      className="btn dashboard"
+                      className="btn dashboard text-white hover:text-sky-300 transition-all duration-1500 "
                       containerClassName="border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white rounded-full"
                     >
                       Dashboard

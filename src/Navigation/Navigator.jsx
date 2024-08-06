@@ -24,6 +24,9 @@ import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
 import { Header76 } from '@/Screens/Gallery';
 import Logo from '@/Components/Logo';
+import ResetPassword from '@/Screens/ResetPassword';
+import ForgotPassword from '@/Screens/ForgotPassword';
+import AuroraBackgroundDisplay from '@/Components/AuroraBackgroundDisplay';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -64,6 +67,8 @@ const Navigator = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path='/forgot-password' element={<ForgotPassword/>} />
           <Route
             path="/dashboard"
             element={

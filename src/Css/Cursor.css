@@ -1,0 +1,23 @@
+/* Add this to your App.css */
+.custom-cursor {
+    cursor: none; /* Hides the default cursor */
+}
+
+.custom-cursor::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 8px; /* Inner cursor size */
+    height: 8px; /* Inner cursor size */
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference; /* Ensures visibility against varying backgrounds */
+}
+
+body:hover .custom-cursor::after {
+    visibility: visible;
+}
