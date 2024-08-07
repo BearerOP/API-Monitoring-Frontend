@@ -73,13 +73,18 @@ export default function Login() {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission
+    handleLogin(); // Call the login function
+  };
+
   const isFormValid = () => email && password && isValidEmail(email);
 
   return (
     <div className='dark'>
       <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px] dark">
         <div className="flex items-center justify-center py-12">
-          <div className="mx-auto grid w-[350px] gap-6">
+          <form className="mx-auto grid w-[350px] gap-6" onSubmit={handleSubmit}>
             <div className="grid gap-2 text-center">
               <h1 className="text-3xl font-bold">Login</h1>
               <p className="text-balance text-muted-foreground">
@@ -122,7 +127,7 @@ export default function Login() {
                 </div>
               )}
               <Button
-                onClick={handleLogin}
+                type="submit"
                 disabled={!isFormValid() || loader}
                 className="w-full"
               >
@@ -145,7 +150,7 @@ export default function Login() {
                 Sign up
               </a>
             </div>
-          </div>
+          </form>
         </div>
         <div className="hidden bg-muted lg:block">
           <div className="w-full h-full flex justify-center items-center" style={{ background: 'linear-gradient(to left, #20002c, #cbb4d4)' }}>
