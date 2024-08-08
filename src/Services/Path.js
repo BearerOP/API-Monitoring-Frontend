@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { getToken } from '@/Services/AuthService'; // Create a utility to get the token
 
+// Determine baseURL based on environment
+const baseURL = import.meta.env.REACT_APP_ENV === 'development' 
+    ? 'http://localhost:10000' // Development URL
+    : 'https://up-status.onrender.com'; // Production URL
+
 const Path = axios.create({
-    // baseURL: 'http://localhost:10000', // Replace with your backend URL
-    baseURL: 'https://up-status.onrender.com', // Replace with your backend URL
+    baseURL,
     headers: {
         'Content-Type': 'application/json'
     }

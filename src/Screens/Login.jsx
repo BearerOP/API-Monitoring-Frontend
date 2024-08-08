@@ -5,9 +5,9 @@ import { AuthContext } from '../Context/AuthContext';
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
-import { toast } from "@/Components/ui/use-toast";
 import SocialCard from '@/Components/SocialCard';
 import '../Css/Login.css'; // Assuming you want to keep the same CSS
+import { toast } from "@/Components/ui/use-toast";
 import { Toaster } from '@/Components/ui/toaster';
 
 export default function Login() {

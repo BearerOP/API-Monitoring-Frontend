@@ -26,7 +26,6 @@ import { Header76 } from '@/Screens/Gallery';
 import Logo from '@/Components/Logo';
 import ResetPassword from '@/Screens/ResetPassword';
 import ForgotPassword from '@/Screens/ForgotPassword';
-import AuroraBackgroundDisplay from '@/Components/AuroraBackgroundDisplay';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
