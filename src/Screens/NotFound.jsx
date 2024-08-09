@@ -1,11 +1,12 @@
-import { Button } from '@/Components/ui/button';
-import { ArrowLeft } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Css/NotFound.css'
+import Navbar from '@/Components/Navbar';
 
 export default function NotFound() {
     return (
+      <>
+      <Navbar/>
         <div className='h-screen w-full dark relative' style={{ background: 'linear-gradient(to right, #a8c0ff, #000)' }}>
             <main className="flex flex-col h-full justify-center items-start px-6 py-24 sm:py-32 lg:px-8">
                 <div className="">
@@ -52,9 +53,7 @@ export default function NotFound() {
                     </div>
                 </div>
             </main>
-            <Link to="/login" className="absolute top-8 right-12 px-4 py-2 text-sm font-bold text-white underline-offset-2 hover:text-indigo-300 hover:underline transition-colors">
-                Login
-            </Link>
         </div>
+      </>
     )
 }

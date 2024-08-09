@@ -13,7 +13,7 @@ if (isDevelopment) {
     <AuthProvider>
         <Navigator />
         <AnimatedCursor
-                color='139, 92, 246'
+                color='139, 62, 246'
                 innerSize={10}
         outerSize={28}
 
