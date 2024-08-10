@@ -16,7 +16,7 @@ export function SparklesPreview({ title }) {
     <>
       <div className="h-screen w-full bg-[#0a0311] flex flex-col items-center justify-center overflow-hidden rounded-md pt-[120px]">
         <div className="flex flex-col items-center justify-center">
-          <span className="text-center text-white relative sm:-bottom-3 md:-bottom-4 lg:-bottom-6 z-20 sm:text-5xl md:text-6xl lg:text-8xl">
+          <span className="text-center text-white relative sm:-bottom-3 md:-bottom-4 lg:-bottom-6 z-20 text-3xl sm:text-5xl md:text-6xl lg:text-8xl">
             <TextGenerate words={title} />
           </span>
           <div className="w-[40rem] h-40 relative">
