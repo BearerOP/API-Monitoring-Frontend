@@ -11,8 +11,8 @@ import '../Css/LandingPage.css';
 
 function LandingPage() {
   return (
-    <div className="App">
-      <Navbar/>
+    <div className="App bg-[#0a0311] ">
+      <Navbar className='bg-[#0a0311]'/>
       <Hero />
       <Cards/>
       <Features />

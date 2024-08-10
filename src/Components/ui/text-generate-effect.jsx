@@ -7,44 +7,50 @@ export const TextGenerateEffect = ({
   words,
   className,
   filter = true,
-  duration = 0.5
+  duration = 1,
 }) => {
   const [scope, animate] = useAnimate();
-  const wordsArray = words.split(" ");
-
+  let wordsArray = words.split(" ");
   useEffect(() => {
-    // Animate the span elements when they are first rendered
-    animate("span", {
-      opacity: 1,
-      filter: filter ? "blur(0px)" : "none",
-    }, {
-      duration: duration || 1,
-      delay: stagger(0.2),
-    });
+    animate(
+      "span",
+      {
+        opacity: 1,
+        filter: filter ? "blur(0px)" : "none",
+      },
+      {
+        duration: duration ? duration : 1,
+        delay: stagger(0.3),
+      }
+    );
   }, [scope.current]);
 
-  const renderWords = () => {
+  const renderChars = () => {
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => (
-          <motion.span
-            key={word + idx}
-            className="text-white opacity-0"
-            style={{
-              filter: filter ? "blur(10px)" : "none",
-            }}
-          >
-            {word}{" "}
-          </motion.span>
-        ))}
+        {wordsArray.map((word, idx) => {
+          return (
+            <motion.span
+              key={word + idx}
+              className="dark:text-white text-black opacity-0"
+              style={{
+                filter: filter ? "blur(10px)" : "none",
+              }}
+            >
+              {word}{" "}
+            </motion.span>
+          );
+        })}
       </motion.div>
     );
   };
 
   return (
-    <div className={cn("font-bold", className)}>
-      <div className="text-white text-2xl sm:text-4xl md:text-6xl lg:text-9xl leading-snug tracking-tight sm:tracking-normal transition-all duration-300">
-        {renderWords()}
+    <div className={cn("font-bold dark", className)}>
+      <div className="">
+        <div className="dark:text-white text-black tracking-wide font-extralight">
+          {renderChars()}
+        </div>
       </div>
     </div>
   );
