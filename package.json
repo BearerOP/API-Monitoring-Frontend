@@ -36,6 +36,7 @@
     "@react-three/fiber": "^8.16.8",
     "@relume_io/relume-tailwind": "^0.3.0",
     "@relume_io/relume-ui": "^0.3.0",
+    "@svgr/webpack": "^8.1.0",
     "@tabler/icons-react": "^3.12.0",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
@@ -63,6 +64,7 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.167.1",
     "three-globe": "^2.31.1",
+    "vite-plugin-svgr": "^4.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

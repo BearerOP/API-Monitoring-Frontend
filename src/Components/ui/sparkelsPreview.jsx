@@ -15,10 +15,13 @@ export function SparklesPreview({ title }) {
   return (
     <>
       <div className="h-screen w-full bg-[#0a0311] flex flex-col items-center justify-center overflow-hidden rounded-md pt-[120px]">
-        <div className="flex flex-col items-center justify-center">
-          <span className="text-center text-white relative sm:-bottom-3 md:-bottom-4 lg:-bottom-6 z-20 text-3xl sm:text-5xl md:text-6xl lg:text-8xl">
-            <TextGenerate words={title} />
-          </span>
+        <div className="flex flex-col items-center justify-center ">
+          <div className="">
+
+            <span className="text-center text-white relative b-0  z-20 text-3xl sm:text-5xl md:text-6xl lg:text-9xl " >
+              <TextGenerate words={title} />
+            </span>
+          </div>
           <div className="w-[40rem] h-40 relative">
             {/* Gradients */}
             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-2/4 blur-sm" />
@@ -45,12 +48,12 @@ export function SparklesPreview({ title }) {
           </div>
         </div>
         <motion.div
-          className="text-2xl md:text-4xl text-center mt-10"
+          className="text-2xl md:text-4xl text-center mt-10 text-wrap"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.5 }} // Adjust delay and duration as needed
         >
-          <span className="font-manrope-light">
+          <span className="font-manrope-light opacity-55">
             Keep your web status clear and reliable.
           </span>
         </motion.div>

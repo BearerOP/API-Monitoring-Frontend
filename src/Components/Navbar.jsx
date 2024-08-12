@@ -34,9 +34,11 @@ const Navbar = () => {
 
   return (
     <>
+    {/* <img src="https://framerusercontent.com/images/R3DZmylcjXIFxppxDVOpV4G2cLc.png" alt="" srcset="" /> */}
       <FloatingNav className="dark" />
     </>
   );
 };
 
 export default Navbar;
+

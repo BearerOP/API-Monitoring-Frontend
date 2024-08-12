@@ -21,6 +21,12 @@
   font-style: normal; /* Optional: Define default style */
 }
 @font-face {
+  font-family: 'ManropeMedium';
+  src: url('../src/assets/fonts/Manrope-Medium.ttf') format('truetype');
+  font-weight: normal; /* Optional: Define default weight */
+  font-style: normal; /* Optional: Define default style */
+}
+@font-face {
   font-family: 'ManropeExtraLight';
   src: url('../src/assets/fonts/Manrope-ExtraLight.ttf') format('truetype');
   font-weight: normal; /* Optional: Define default weight */
@@ -100,6 +106,7 @@
     --font-thin: 'CabinetGrotesk-Thin', sans-serif;
     --font-manrope-normal: 'Manrope', sans-serif;
     --font-manrope-extralight: 'ManropeExtraLight', sans-serif;
+    --font-manrope-medium: 'ManropeMedium', sans-serif;
   }
 
   .dark {
@@ -131,6 +138,8 @@
     --font-manrope: 'Manrope', sans-serif;
     --font-manrope-light: 'ManropeLight', sans-serif;
     --font-manrope-extralight: 'ManropeExtraLight', sans-serif;
+    --font-manrope-medium: 'ManropeMedium', sans-serif;
+
   }
 }
 
@@ -148,3 +157,8 @@
 .font-manrope-extralight {
   font-family: 'MaropeExtraLight';
 }
+
+.font-manrope-medium {
+  font-family: 'ManropeMedium';
+  font-weight: 600;
+  }
