@@ -1,5 +1,5 @@
 /* From Uiverse.io by david-mohseni */ 
-.loader {
+.minimalLoader {
     position: relative;
     width: 54px;
     height: 54px;
@@ -10,7 +10,7 @@
     justify-content: center;
   }
   
-  .loader div {
+  .minimalLoader div {
     width: 3px;
     height: 7px;
     background: rgb(129, 62, 224);
@@ -28,11 +28,11 @@
     }
   }
   
-  .loader .bar1 { transform: rotate(0deg) translateY(-8px); }
-  .loader .bar2 { transform: rotate(45deg) translateY(-8px); }
-  .loader .bar3 { transform: rotate(90deg) translateY(-8px); }
-  .loader .bar4 { transform: rotate(135deg) translateY(-8px); }
-  .loader .bar5 { transform: rotate(180deg) translateY(-8px); }
-  .loader .bar6 { transform: rotate(225deg) translateY(-8px); }
-  .loader .bar7 { transform: rotate(270deg) translateY(-8px); }
-  .loader .bar8 { transform: rotate(315deg) translateY(-8px); }
+  .minimalLoader .bar1 { transform: rotate(0deg) translateY(-8px); }
+  .minimalLoader .bar2 { transform: rotate(45deg) translateY(-8px); }
+  .minimalLoader .bar3 { transform: rotate(90deg) translateY(-8px); }
+  .minimalLoader .bar4 { transform: rotate(135deg) translateY(-8px); }
+  .minimalLoader .bar5 { transform: rotate(180deg) translateY(-8px); }
+  .minimalLoader .bar6 { transform: rotate(225deg) translateY(-8px); }
+  .minimalLoader .bar7 { transform: rotate(270deg) translateY(-8px); }
+  .minimalLoader .bar8 { transform: rotate(315deg) translateY(-8px); }

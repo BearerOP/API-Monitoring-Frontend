@@ -3,7 +3,7 @@ import '../Css/MinimalLoader.css'
 const MinimalLoader = () => {
     return (
         <div className='flex justify-center items-center w-8'>
-            <div className="loader">
+            <div className="minimalLoader">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
