@@ -18,11 +18,16 @@ export function SparklesPreview({ title }) {
         <div className="flex flex-col items-center justify-center ">
           <div className="">
 
-            <span className="text-center text-white relative b-0  z-20 text-3xl sm:text-5xl md:text-6xl lg:text-9xl " >
+            <span className="text-center text-white relative b-0  z-20 text-3xl sm:text-5xl md:text-6xl lg:text-9xl hover:text-slate-600 " >
               <TextGenerate words={title} />
             </span>
           </div>
-          <div className="w-[40rem] h-40 relative">
+          <motion.div
+            className="w-[40rem] h-40 relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1,delay: 1 }} // Adjust duration as needed
+          >
             {/* Gradients */}
             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-2/4 blur-sm" />
             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
@@ -42,10 +47,9 @@ export function SparklesPreview({ title }) {
               className="w-full h-full"
               particleColor="#a855f7"
             />
-
-            {/* Radial Gradient to prevent sharp edges */}
             <div className="absolute inset-0 w-full h-full bg-[#0a0311] [mask-image:radial-gradient(350px_200px_at_top,transparent_30%,white)]"></div>
-          </div>
+          </motion.div>
+
         </div>
         <motion.div
           className="text-2xl md:text-4xl text-center mt-10 text-wrap"
@@ -64,7 +68,7 @@ export function SparklesPreview({ title }) {
             Getting started with{" "}
             <LinkPreview
               url={url}
-              imageSrc="src/assets/images/api_graph_ss.png"
+              imageSrc="https://firebasestorage.googleapis.com/v0/b/theslugproject.appspot.com/o/api_graph_ss.png?alt=media&token=52b4399e-ba1f-466a-b15c-a641ace0d0de"
               isStatic
               className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 to-pink-500"
             >
@@ -76,7 +80,7 @@ export function SparklesPreview({ title }) {
             check your website{" "}
             <LinkPreview
               url={url}
-              imageSrc="src/assets/images/api_log_ss.png"
+              imageSrc="https://firebasestorage.googleapis.com/v0/b/theslugproject.appspot.com/o/api_log_ss.png?alt=media&token=46d71709-b0c9-44bc-b0bb-aee7d532686b"
               isStatic
               className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
             >
