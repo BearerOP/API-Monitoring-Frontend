@@ -8,9 +8,11 @@ import CTA from '../Components/CTA.jsx';
 import Footer from '../Components/Footer.jsx';
 import Navbar from '../Components/Navbar.jsx';
 import '../Css/LandingPage.css';
+import { Toaster } from "@/Components/ui/toaster";
 
 function LandingPage() {
   return (
+    <>
     <div className="App bg-[#0a0311] ">
       <Navbar className='bg-[#0a0311]'/>
       <Hero />
@@ -21,6 +23,8 @@ function LandingPage() {
       <CTA />
       <Footer />
     </div>
+      <Toaster />
+    </>
   );
 }
 
