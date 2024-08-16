@@ -22,7 +22,7 @@ import SettingsAccountPage from '@/Screens/SettingsAccountPage';
 import SettingsNotificationsPage from '@/Screens/SettingsNotificationsPage';
 import SettingsSecurityPage from '@/Screens/SettingsSecurityPage';
 import NotFound from '@/Screens/NotFound';
-import { Header76 } from '@/Screens/Gallery';
+import { Gallery } from '@/Screens/Gallery';
 import Logo from '@/Components/Logo';
 import ResetPassword from '@/Screens/ResetPassword';
 import ForgotPassword from '@/Screens/ForgotPassword';
@@ -92,7 +92,7 @@ const Navigator = () => {
               <Route path='security' element={<SettingsSecurityPage />} />
             </Route>
           </Route>
-          <Route path="/gallery" element={<Header76 />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/logo" element={<Logo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
