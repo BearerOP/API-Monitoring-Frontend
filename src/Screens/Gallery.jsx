@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button } from "@relume_io/relume-ui";
-import Testimonials from '@/Components/Testimonials';
 
 
 
-export const Header76 = (props) => {
+export const Gallery = (props) => {
   const { heading, description, buttons, images } = {
     ...Header76Defaults,
     ...props,
@@ -55,7 +54,6 @@ export const Header76 = (props) => {
         </div>
       </div>
     </header>
-    <Testimonials/>
   </>
   );
 };
@@ -93,4 +91,4 @@ export const Header76Defaults = {
   ],
 };
 
-Header76.displayName = "Header76";
+Gallery.displayName = "Header76";
