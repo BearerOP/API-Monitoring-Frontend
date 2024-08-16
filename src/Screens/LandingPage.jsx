@@ -6,6 +6,7 @@ import Navbar from '../Components/Navbar.jsx';
 import '../Css/LandingPage.css';
 import { Toaster } from "@/Components/ui/toaster";
 import Testimonials from '@/Components/Testimonials.jsx';
+import { Gallery } from './Gallery.jsx';
 
 function LandingPage() {
   return (
@@ -13,6 +14,7 @@ function LandingPage() {
     <div className="App bg-[#0a0311] ">
       <Navbar className='bg-[#0a0311]'/>
       <Hero />
+      <Gallery/>
       <Cards/>
       <Testimonials/>
       <Footer />
