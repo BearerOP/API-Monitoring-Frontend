@@ -11,18 +11,21 @@ document.head.appendChild(notoSansLink);
 const Logo = () => {
     return (
 
-        <>
+        <div className='w-full h-screen flex justify-center items-center'>
             <div className='logo-container'>
-                <span >
+                <span className='flex justify-center items-center'>
                     <Link
                         to="/"
                         className="logo-text"
                     >
-                        स
+                        {/* ध */}
+                        अ
+                        {/* स */}
+
                     </Link>
                 </span>
             </div>
-        </>
+        </div>
     );
 }
 
