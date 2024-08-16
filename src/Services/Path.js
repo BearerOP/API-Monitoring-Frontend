@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from '@/Services/AuthService'; // Create a utility to get the token
 
 // Determine baseURL based on environment
-const baseURL = import.meta.env.REACT_APP_ENV === 'development' 
+const baseURL = import.meta.env.VITE_APP_ENV === 'development'
     ? 'http://localhost:10000' // Development URL
     : 'https://up-status.onrender.com'; // Production URL
 
