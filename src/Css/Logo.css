@@ -6,7 +6,7 @@
     align-items: center;
     width: 50px; /* Adjust the width as needed */
     height: 50px; /* Adjust the height as needed */
-    background: linear-gradient(to bottom, #0a0217, #3e1261); /* Gradient background similar to the image */
+    background: linear-gradient(to bottom, #ab82ec, #a84ff7); /* Gradient background similar to the image */
     border-radius: 10px; /* Rounded corners */
     font-size: 36px; /* Adjust the font size as needed */
     color: white; /* Font color */
@@ -21,7 +21,7 @@
 }
 
 .logo-text {
-    background: linear-gradient(to bottom, #8f21cf, #ecccff);
+    background: linear-gradient(to bottom, #3b127e, #6606b5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Noto Sans', Arial, sans-serif;
