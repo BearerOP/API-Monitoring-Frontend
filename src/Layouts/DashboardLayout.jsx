@@ -32,7 +32,6 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { useContext } from 'react';
 import { Toaster } from "@/Components/ui/toaster";
-import Logo from '@/Components/Logo';
 const DashboardLayout = () => {
 
   const navigate = useNavigate();
