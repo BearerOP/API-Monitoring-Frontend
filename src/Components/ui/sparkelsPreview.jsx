@@ -2,14 +2,7 @@
 import React from "react";
 import { SparklesCore } from "./sparkles";
 import TextGenerate from "../TextGenerate";
-import { LinkPreview } from "./link-preview";
 import { motion } from "framer-motion";
-
-const isDevelopment = import.meta.env.MODE === 'production';
-let url = 'http://localhost:5173/dashboard/monitor';
-if (isDevelopment) {
-  url = 'https://up-status-xi.vercel.app/dashboard/monitor';
-}
 
 export function SparklesPreview({ title }) {
   return (
@@ -61,34 +54,6 @@ export function SparklesPreview({ title }) {
             Keep your web status clear and reliable.
           </span>
         </motion.div>
-      </div>
-      <div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-        <div className="flex justify-center items-center flex-col px-4">
-          <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl text-left">
-            Getting started with{" "}
-            <LinkPreview
-              url={url}
-              imageSrc="https://firebasestorage.googleapis.com/v0/b/theslugproject.appspot.com/o/api_graph_ss.png?alt=media&token=52b4399e-ba1f-466a-b15c-a641ace0d0de"
-              isStatic
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 to-pink-500"
-            >
-              api-monitoring
-            </LinkPreview>{" "}
-            &{" "}
-          </p>
-          <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl text-left">
-            check your website{" "}
-            <LinkPreview
-              url={url}
-              imageSrc="https://firebasestorage.googleapis.com/v0/b/theslugproject.appspot.com/o/api_log_ss.png?alt=media&token=46d71709-b0c9-44bc-b0bb-aee7d532686b"
-              isStatic
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
-            >
-              status
-            </LinkPreview>{" "}
-            with
-          </p>
-        </div>
       </div>
     </>
   );
