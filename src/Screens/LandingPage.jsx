@@ -7,6 +7,9 @@ import '../Css/LandingPage.css';
 import { Toaster } from "@/Components/ui/toaster";
 import Testimonials from '@/Components/Testimonials.jsx';
 import { Gallery } from './Gallery.jsx';
+import HeroScroll from '@/Components/HeroScroll.jsx';
+import LinkPreviewHero from '@/Components/LinkPreview.jsx';
+import { BackgroundGradientAnimation } from '@/Components/ui/background-gradient-animation.jsx';
 
 function LandingPage() {
   return (
@@ -14,6 +17,8 @@ function LandingPage() {
     <div className="App bg-[#0a0311] ">
       <Navbar className='bg-[#0a0311]'/>
       <Hero />
+      <LinkPreviewHero/>
+      <HeroScroll/>
       <Gallery/>
       <Cards/>
       <Testimonials/>
