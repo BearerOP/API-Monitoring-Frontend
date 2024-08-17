@@ -1,20 +1,53 @@
 import React from 'react';
-import '../Css/MinimalLoader.css'
-const MinimalLoader = () => {
+import styled, { keyframes } from 'styled-components';
+
+// Define keyframes for rotation animation
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+// Define the styled loader component
+const MinimalLoader = styled.div`
+
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  animation: ${rotate} 0.8s linear infinite reverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Bar = styled.div`
+  width: 3px;
+  height: 7px;
+  background: rgb(129, 62, 224);
+  position: absolute;
+  opacity: 1;
+  border-radius: 50vh;
+  transform: rotate(${(props) => props.rotation}deg) translateY(-8px);
+`;
+
+// Use styled-components to create the React component
+const MinimalLoaderComponent = () => {
+    const bars = Array.from({ length: 8 }, (_, index) => 45 * index);
+  
     return (
-        <div className='flex justify-center items-center w-8'>
-            <div className="minimalLoader">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <div class="bar4"></div>
-                <div class="bar5"></div>
-                <div class="bar6"></div>
-                <div class="bar7"></div>
-                <div class="bar8"></div>
-            </div>
+        <div className='h-full w-full flex justify-center items-center'>
+          <div className='flex justify-center items-center w-8 h-8'>
+            <MinimalLoader >
+                {bars.map((rotation, index) => (
+                    <Bar key={index} rotation={rotation} />
+                ))}
+            </MinimalLoader>
+        </div>
         </div>
     );
 }
 
-export default MinimalLoader;
+export default MinimalLoaderComponent;
