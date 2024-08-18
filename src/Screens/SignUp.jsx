@@ -6,6 +6,8 @@ import { Label } from '@/Components/ui/label';
 import { Button } from '@/Components/ui/button';
 import '../Css/SignUp.css'; // Ensure this path is correct
 import { WavyBackground } from '@/Components/ui/wavy-background';
+import { EyeIcon, EyeOff } from 'lucide-react';
+import MinimalLoaderComponent from '@/Components/MinimalLoader';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -14,6 +16,11 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -43,7 +50,7 @@ const SignUp = () => {
 
     const isFormValid = () => username && isValidEmail(email) && isValidPassword(password);
 
-    const passwordErrorClass = !isValidPassword(password) && password ? 'text-rose-800 text-sm' : 'text-muted-foreground text-sm';
+    const passwordErrorClass = !isValidPassword(password) && password ? 'text-rose-800 text-sm delay-100 duration-500 transition opacity-100' : 'collapse opacity-0 text-sm text-rose-800 ';
 
     return (
         <div className='relative dark'>
@@ -86,13 +93,27 @@ const SignUp = () => {
                             </div>
                             <div className="grid gap-2">
                                 <Label htmlFor="password">Password</Label>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    required
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
+                                <div className="relative">
+                                    <Input
+                                        id="password"
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        required
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className='tracking-wider'
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={togglePasswordVisibility}
+                                        className="absolute right-2 top-2"
+                                    >
+                                        {passwordVisible ? (
+                                            <EyeOff className="h-5 w-5 text-gray-500" />
+                                        ) : (
+                                            <EyeIcon className="h-5 w-5 text-gray-500" />
+                                        )}
+                                    </button>
+                                </div>
                                 <p className="text-muted-foreground text-sm">
                                     Password must be at least 8 characters long, include a number, and a special character.*
                                 </p>
@@ -112,8 +133,7 @@ const SignUp = () => {
                             >
                                 {loader ? (
                                     <>
-                                        Signing Up
-                                        <span className="spinner"></span>
+                                                  <MinimalLoaderComponent barColor="rgb(255,255,255)" />
                                     </>
                                 ) : (
                                     'Sign Up'
