@@ -13,7 +13,6 @@ const rotate = keyframes`
 
 // Define the styled loader component
 const MinimalLoader = styled.div`
-
   width: 54px;
   height: 54px;
   border-radius: 50%;
@@ -26,7 +25,7 @@ const MinimalLoader = styled.div`
 const Bar = styled.div`
   width: 3px;
   height: 7px;
-  background: rgb(129, 62, 224);
+  background: ${(props) => props.barColor || 'rgb(129, 62, 224)'};
   position: absolute;
   opacity: 1;
   border-radius: 50vh;
@@ -34,15 +33,15 @@ const Bar = styled.div`
 `;
 
 // Use styled-components to create the React component
-const MinimalLoaderComponent = () => {
+const MinimalLoaderComponent = ({ barColor }) => {
     const bars = Array.from({ length: 8 }, (_, index) => 45 * index);
   
     return (
         <div className='h-full w-full flex justify-center items-center'>
           <div className='flex justify-center items-center w-8 h-8'>
-            <MinimalLoader >
+            <MinimalLoader>
                 {bars.map((rotation, index) => (
-                    <Bar key={index} rotation={rotation} />
+                    <Bar key={index} rotation={rotation} barColor={barColor} />
                 ))}
             </MinimalLoader>
         </div>
