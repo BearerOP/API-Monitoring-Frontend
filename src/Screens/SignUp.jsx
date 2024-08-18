@@ -133,7 +133,7 @@ const SignUp = () => {
                             >
                                 {loader ? (
                                     <>
-                                                  <MinimalLoaderComponent barColor="rgb(255,255,255)" />
+                                        <MinimalLoaderComponent barColor="rgb(255,255,255)" />
                                     </>
                                 ) : (
                                     'Sign Up'
