@@ -9,6 +9,7 @@ import SocialCard from '@/Components/SocialCard';
 import '../Css/Login.css'; // Assuming you want to keep the same CSS
 import { toast } from "@/Components/ui/use-toast";
 import { Toaster } from '@/Components/ui/toaster';
+import { EyeIcon, EyeOff } from 'lucide-react';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const { login } = useContext(AuthContext);
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
+  const togglePasswordVisibility = () => {
+      setPasswordVisible(!passwordVisible);
+  };
   const isValidEmail = (email) => {
     // Simple email regex for validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -113,13 +118,27 @@ export default function Login() {
                     Forgot your password?
                   </a>
                 </div>
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="relative">
+                                    <Input
+                                        id="password"
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        required
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className='tracking-wider'
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={togglePasswordVisibility}
+                                        className="absolute right-2 top-2"
+                                    >
+                                        {passwordVisible ? (
+                                            <EyeOff className="h-5 w-5 text-gray-500" />
+                                        ) : (
+                                            <EyeIcon className="h-5 w-5 text-gray-500" />
+                                        )}
+                                    </button>
+                                </div>
               </div>
               {message && (
                 <div className="error-message">
