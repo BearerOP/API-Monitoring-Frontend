@@ -10,6 +10,7 @@ import { Gallery } from './Gallery.jsx';
 import HeroScroll from '@/Components/HeroScroll.jsx';
 import LinkPreviewHero from '@/Components/LinkPreview.jsx';
 import { BackgroundGradientAnimation } from '@/Components/ui/background-gradient-animation.jsx';
+import ContactUs from './ContactUs.jsx';
 
 function LandingPage() {
   return (
@@ -20,6 +21,7 @@ function LandingPage() {
       <LinkPreviewHero/>
       <HeroScroll/>
       <Gallery/>
+      <ContactUs/>
       <Cards/>
       <Testimonials/>
       <Footer />
