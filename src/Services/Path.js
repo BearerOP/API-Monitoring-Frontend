@@ -6,7 +6,7 @@ const baseURL =
   import.meta.env.VITE_APP_ENV === "development"
     ? "http://localhost:8080" // Development URL
     // : "https://up-status.onrender.com";
-: 'https://13.235.99.19:8080/'; // Production URL
+: 'http://13.235.99.19:8080/'; // Production URL
 
 const Path = axios.create({
   baseURL,
