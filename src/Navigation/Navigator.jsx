@@ -26,6 +26,7 @@ import { Gallery } from '@/Screens/Gallery';
 import Logo from '@/Components/Logo';
 import ResetPassword from '@/Screens/ResetPassword';
 import ForgotPassword from '@/Screens/ForgotPassword';
+import Demo from '@/Screens/Demo';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -94,6 +95,8 @@ const Navigator = () => {
           </Route>
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/logo" element={<Logo />} />
+          <Route path="/demo" element={<Demo />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
