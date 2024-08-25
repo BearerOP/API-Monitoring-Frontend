@@ -1,62 +1,116 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Path from '../Services/Path';
-import { Input } from '@/Components/ui/input';
-import { Label } from '@/Components/ui/label';
-import { Button } from '@/Components/ui/button';
-import '../Css/SignUp.css'; // Ensure this path is correct
-import { WavyBackground } from '@/Components/ui/wavy-background';
-import { EyeIcon, EyeOff } from 'lucide-react';
-import MinimalLoaderComponent from '@/Components/MinimalLoader';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Path from "../Services/Path";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
+import { Button } from "@/Components/ui/button";
+import "../Css/SignUp.css"; // Ensure this path is correct
+import { WavyBackground } from "@/Components/ui/wavy-background";
+import { EyeIcon, EyeOff, CheckIcon } from "lucide-react";
+import { Circle } from "lucide-react";
+import MinimalLoaderComponent from "@/Components/MinimalLoader";
 
 const SignUp = () => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
+
+    // States for password validation
+    const [hasUpperLower, setHasUpperLower] = useState(false);
+    const [hasMinLength, setHasMinLength] = useState(false);
+    const [hasNumber, setHasNumber] = useState(false);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
+    // Validate password conditions
+    const validatePassword = (password) => {
+        const upperLowerRegex = /^(?=.*[a-z])(?=.*[A-Z])/;
+        const minLengthRegex = /^.{8,}$/;
+        const numberRegex = /^(?=.*\d)/;
+
+        setHasUpperLower(upperLowerRegex.test(password));
+        setHasMinLength(minLengthRegex.test(password));
+        setHasNumber(numberRegex.test(password));
+    };
+
     const handleSignUp = async (e) => {
         e.preventDefault();
         setLoader(true);
-        setMessage(''); // Clear previous messages
+        setMessage(""); // Clear previous messages
         try {
-            const response = await Path.post('/api/register', {
+            const response = await Path.post("/api/register", {
                 username,
                 email,
-                password
+                password,
             });
             if (response.data.success) {
                 alert(response.data.message);
-                navigate('/login');
+                navigate("/login");
             } else {
                 setMessage(response.data.message);
             }
         } catch (error) {
-            setMessage('Sign Up failed. Please try again.');
+            setMessage("Sign Up failed. Please try again.");
         } finally {
             setLoader(false);
         }
     };
 
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const isValidPassword = (password) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+    const isValidPassword = () =>
+        hasUpperLower && hasMinLength && hasNumber;
 
-    const isFormValid = () => username && isValidEmail(email) && isValidPassword(password);
+    const isFormValid = () =>
+        username && isValidEmail(email) && isValidPassword();
 
-    const passwordErrorClass = !isValidPassword(password) && password ? 'text-rose-800 text-sm delay-100 duration-500 transition opacity-100' : 'collapse opacity-0 text-sm text-rose-800 ';
+    const passwordErrorClass =
+        !isValidPassword() && password
+            ? "text-rose-800 text-sm delay-100 duration-500 transition opacity-100"
+            : "collapse opacity-0 text-sm text-rose-800 ";
 
     return (
-        <div className='relative dark'>
+        <div className="relative dark">
+            <button onClick={() => navigate("/")} className="absolute top-4 left-4 bg-slate-800 lg:block z-50 no-underline group cursor-pointer shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+                <span className="absolute inset-0 overflow-hidden rounded-full">
+                    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </span>
+                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
+                    <svg
+                        className="rotate-180"
+                        fill="none"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.75 8.75L14.25 12L10.75 15.25"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
+                        />
+                    </svg>
+                    <span>
+                        Back to Home
+                    </span>
+
+                </div>
+                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-violet-400/90 to-violet-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+            </button>
+
             <div className="w-full lg:grid h-screen lg:grid-cols-2">
                 <div className="flex items-center justify-center py-12 z-10 bg-background/70 border-r">
-                    <form className="mx-auto grid w-[350px] gap-6" onSubmit={handleSignUp}>
+                    <form
+                        className="mx-auto grid w-[350px] gap-6"
+                        onSubmit={handleSignUp}
+                    >
                         <div className="grid gap-2 text-center">
                             <h1 className="text-3xl font-bold">Sign Up</h1>
                             <p className="text-balance text-muted-foreground">
@@ -96,11 +150,14 @@ const SignUp = () => {
                                 <div className="relative">
                                     <Input
                                         id="password"
-                                        type={passwordVisible ? 'text' : 'password'}
+                                        type={passwordVisible ? "text" : "password"}
                                         required
                                         value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className='tracking-wider'
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                            validatePassword(e.target.value);
+                                        }}
+                                        className="tracking-wider"
                                     />
                                     <button
                                         type="button"
@@ -115,10 +172,41 @@ const SignUp = () => {
                                     </button>
                                 </div>
                                 <p className="text-muted-foreground text-sm">
-                                    Password must be at least 8 characters long, include a number, and a special character.*
-                                </p>
-                                <p className={passwordErrorClass}>
-                                    Ensure your password meets the required criteria.
+                                    <ul>
+                                        <li className="flex gap-x-2 pl-1">
+                                            {hasUpperLower ? (
+                                                <CheckIcon
+                                                    width={"14px"}
+                                                    className="text-green-600"
+                                                />
+                                            ) : (
+                                                <Circle width={"8px"} />
+                                            )}
+                                            <p>Mix of uppercase & lowercase letters</p>
+                                        </li>
+                                        <li className="flex gap-x-2 pl-1">
+                                            {hasMinLength ? (
+                                                <CheckIcon
+                                                    width={"14px"}
+                                                    className="text-green-600"
+                                                />
+                                            ) : (
+                                                <Circle width={"8px"} />
+                                            )}
+                                            <p>Minimum 8 characters long</p>
+                                        </li>
+                                        <li className="flex gap-x-2 pl-1">
+                                            {hasNumber ? (
+                                                <CheckIcon
+                                                    width={"14px"}
+                                                    className="text-green-600"
+                                                />
+                                            ) : (
+                                                <Circle width={"8px"} />
+                                            )}
+                                            <p>Contain at least 1 number</p>
+                                        </li>
+                                    </ul>
                                 </p>
                             </div>
                             {message && (
@@ -136,7 +224,7 @@ const SignUp = () => {
                                         <MinimalLoaderComponent barColor="rgb(255,255,255)" />
                                     </>
                                 ) : (
-                                    'Sign Up'
+                                    "Sign Up"
                                 )}
                             </Button>
                             <Button variant="outline" className="w-full">
