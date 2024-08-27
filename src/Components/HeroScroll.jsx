@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import { ContainerScroll } from "@/Components/ui/container-scroll-animation";
+'use client';
+
+import { ContainerScroll } from '@/Components/ui/container-scroll-animation';
 
 const HeroScroll = () => {
   return (
@@ -9,9 +9,9 @@ const HeroScroll = () => {
         titleComponent={
           <>
             <h1 className="text-4xl font-bold text-white">
-            Heads up! We’ve sent an email about the <br />
+              Heads up! We’ve sent an email about the <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-               downtime.
+                downtime.
               </span>
             </h1>
           </>

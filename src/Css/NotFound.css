@@ -1,54 +1,53 @@
 .Btn-Container {
-    display: flex;
-    width: 170px;
-    height: fit-content;
-    background-color: #1d2129;
-    border-radius: 40px;
-    box-shadow: 0px 5px 10px #bebebe;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  width: 170px;
+  height: fit-content;
+  background-color: #1d2129;
+  border-radius: 40px;
+  box-shadow: 0px 5px 10px #bebebe;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+.icon-Container {
+  width: 45px;
+  height: 45px;
+  background-color: #8e55f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #1d2129;
+  transition: all ease-in-out 0.7s;
+}
+.icon-Container:hover {
+  background-color: #a687df;
+}
+.text {
+  width: calc(170px - 45px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+  letter-spacing: 1.2px;
+}
+.icon-Container svg {
+  transition-duration: 1.5s;
+}
+.Btn-Container:hover .icon-Container svg {
+  transition-duration: 1.5s;
+  animation: arrow 1s linear infinite;
+}
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    margin-left: 0px;
   }
-  .icon-Container {
-    width: 45px;
-    height: 45px;
-    background-color: #8e55f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 3px solid #1d2129;
-    transition: all ease-in-out .7s;
+  100% {
+    opacity: 1;
+    margin-left: 10px;
   }
-  .icon-Container:hover {
-    background-color: #a687df;
-  }
-  .text {
-    width: calc(170px - 45px);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.1em;
-    letter-spacing: 1.2px;
-  }
-  .icon-Container svg {
-    transition-duration: 1.5s;
-  }
-  .Btn-Container:hover .icon-Container svg {
-    transition-duration: 1.5s;
-    animation: arrow 1s linear infinite;
-  }
-  @keyframes arrow {
-    0% {
-      opacity: 0;
-      margin-left: 0px;
-    }
-    100% {
-      opacity: 1;
-      margin-left: 10px;
-    }
-  }
-  
+}

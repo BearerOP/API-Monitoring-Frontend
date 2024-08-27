@@ -1,8 +1,6 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/Components/ui/button";
-
+import { Link, useLocation } from 'react-router-dom';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/Components/ui/button';
 
 export function SidebarNav({ className, items, ...props }) {
   const location = useLocation();
@@ -10,7 +8,7 @@ export function SidebarNav({ className, items, ...props }) {
   return (
     <nav
       className={cn(
-        "flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
+        'flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1',
         className
       )}
       {...props}
@@ -20,11 +18,11 @@ export function SidebarNav({ className, items, ...props }) {
           key={item.href}
           to={item.href}
           className={cn(
-            buttonVariants({ variant: "ghost" }),
+            buttonVariants({ variant: 'ghost' }),
             location.pathname === item.href
-              ? "bg-muted hover:bg-muted"
-              : "hover:bg-transparent hover:underline",
-            "justify-start"
+              ? 'bg-muted hover:bg-muted'
+              : 'hover:bg-transparent hover:underline',
+            'justify-start'
           )}
         >
           {item.title}

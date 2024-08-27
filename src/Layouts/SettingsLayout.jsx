@@ -1,36 +1,33 @@
-import React from 'react';
-import { Link,NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { Separator } from '@/Components/ui/separator';
 import { buttonVariants } from '@/Components/ui/button';
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 export const metadata = {
-  title: "Forms",
-  description: "Advanced form example using react-hook-form and Zod.",
+  title: 'Forms',
+  description: 'Advanced form example using react-hook-form and Zod.',
 };
 
 const sidebarNavItems = [
   {
-    title: "Profile",
-    to: "",
+    title: 'Profile',
+    to: '',
   },
   {
-    title: "Account",
-    to: "account",
+    title: 'Account',
+    to: 'account',
   },
   {
-    title: "Notifications",
-    to: "notifications",
+    title: 'Notifications',
+    to: 'notifications',
   },
   {
-    title: "Security & Password",
-    to: "security",
+    title: 'Security & Password',
+    to: 'security',
   },
 ];
 
 function SettingsLayout() {
-  const location = useLocation();
-
   return (
     <>
       <div className="md:hidden">
@@ -58,20 +55,20 @@ function SettingsLayout() {
         </div>
         <Separator className="my-6" />
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-        <aside className="-mx-4 lg:w-1/5">
+          <aside className="-mx-4 lg:w-1/5">
             <nav className="flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1">
-              {sidebarNavItems.map(item => (
+              {sidebarNavItems.map((item) => (
                 <NavLink
-                  key={item.to} 
+                  key={item.to}
                   to={item.to}
                   end
                   className={({ isActive }) =>
                     cn(
-                      buttonVariants({ variant: "ghost" }),
+                      buttonVariants({ variant: 'ghost' }),
                       isActive
-                        ? "bg-muted hover:bg-muted hover:text-[#7547c0] text-[#7547c0]"
-                        : "hover:bg-transparent hover:text-[#7547c0] hover:underline",
-                      "justify-start"
+                        ? 'bg-muted hover:bg-muted hover:text-[#7547c0] text-[#7547c0]'
+                        : 'hover:bg-transparent hover:text-[#7547c0] hover:underline',
+                      'justify-start'
                     )
                   }
                 >

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Label } from "@/Components/ui/label";
-import { Input } from "@/Components/ui/input";
-import { Button } from "@/Components/ui/button";
-import { Link } from "react-router-dom";
-import AuroraBackgroundDisplay from "@/Components/AuroraBackgroundDisplay";
-import Path from "@/Services/Path"; // Import your API service
-import { toast } from "@/Components/ui/use-toast"; // Import your custom toast
+import { useState, useEffect } from 'react';
+import { Label } from '@/Components/ui/label';
+import { Input } from '@/Components/ui/input';
+import { Button } from '@/Components/ui/button';
+import { Link } from 'react-router-dom';
+import AuroraBackgroundDisplay from '@/Components/AuroraBackgroundDisplay';
+import Path from '@/Services/Path'; // Import your API service
+import { toast } from '@/Components/ui/use-toast'; // Import your custom toast
 import { Toaster } from '@/Components/ui/toaster'; // Import your custom Toaster
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [timeLeft, setTimeLeft] = useState(0); // State for time countdown
-
+  success;
   useEffect(() => {
-    const storedTimestamp = localStorage.getItem("forgotPasswordAttemptTime");
+    const storedTimestamp = localStorage.getItem('forgotPasswordAttemptTime');
     const cooldownPeriod = 10 * 60 * 1000; // 10 minutes in milliseconds
 
     if (storedTimestamp) {
@@ -26,7 +26,7 @@ export default function ForgotPassword() {
       if (remainingTime > 0) {
         setTimeLeft(Math.ceil(remainingTime / 1000)); // Convert to seconds
         const timer = setInterval(() => {
-          setTimeLeft(prevTime => Math.max(prevTime - 1, 0));
+          setTimeLeft((prevTime) => Math.max(prevTime - 1, 0));
         }, 1000);
 
         return () => clearInterval(timer);
@@ -47,7 +47,7 @@ export default function ForgotPassword() {
     if (timeLeft > 0) {
       toast({
         title: 'Try again later',
-          className:'dark',
+        className: 'dark',
         description: `Please wait ${formatTime(timeLeft)} before trying again.`,
       });
       return;
@@ -55,12 +55,12 @@ export default function ForgotPassword() {
 
     try {
       // Save the current timestamp to local storage
-      localStorage.setItem("forgotPasswordAttemptTime", Date.now().toString());
+      localStorage.setItem('forgotPasswordAttemptTime', Date.now().toString());
 
       const response = await Path.post('/api/forgot-password', { email });
       if (response.data.success) {
         setSuccess(response.data.message);
-        setError("");
+        setError('');
         toast({
           title: 'Reset link sent',
           description: response.data.message,
@@ -72,11 +72,11 @@ export default function ForgotPassword() {
             border: 'solid #000 2px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.6)',
             height: '90px',
-          }
+          },
         });
       } else {
         setError(response.data.message);
-        setSuccess("");
+        setSuccess('');
         toast({
           title: 'Request failed',
           description: response.data.message,
@@ -88,12 +88,12 @@ export default function ForgotPassword() {
             border: 'solid #000 2px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.6)',
             height: '90px',
-          }
+          },
         });
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
-      setSuccess("");
+      setError('An error occurred. Please try again.');
+      setSuccess('');
       toast({
         title: 'Error',
         description: 'An error occurred. Please try again.',
@@ -105,7 +105,7 @@ export default function ForgotPassword() {
           border: 'solid #000 2px',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.6)',
           height: '90px',
-        }
+        },
       });
     }
   };
@@ -121,7 +121,8 @@ export default function ForgotPassword() {
                   Forgot your password?
                 </h2>
                 <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-                  Enter the email address associated with your account and we'll send you a link to reset your password.
+                  Enter the email address associated with your account and
+                  we&apos;ll send you a link to reset your password.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6" method="POST">
@@ -138,7 +139,7 @@ export default function ForgotPassword() {
                     placeholder="Email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className='text-slate-600'
+                    className="text-slate-600"
                   />
                 </div>
                 {error && <p className="text-red-500 text-center">{error}</p>}
@@ -159,7 +160,7 @@ export default function ForgotPassword() {
           </div>
         }
       />
-      <Toaster className='dark' />
+      <Toaster className="dark" />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,8 +18,8 @@ import { Switch } from '@/Components/ui/switch';
 import { toast } from '@/Components/ui/use-toast';
 
 const notificationsFormSchema = z.object({
-  type: z.enum(["all", "mentions", "none"], {
-    required_error: "You need to select a notification type.",
+  type: z.enum(['all', 'mentions', 'none'], {
+    required_error: 'You need to select a notification type.',
   }),
   mobile: z.boolean().default(false).optional(),
   communication_emails: z.boolean().default(false).optional(),
@@ -44,7 +43,7 @@ export default function NotificationsForm() {
 
   function onSubmit(data) {
     toast({
-      title: "You submitted the following values:",
+      title: 'You submitted the following values:',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
@@ -72,13 +71,17 @@ export default function NotificationsForm() {
                     <FormControl>
                       <RadioGroupItem value="all" />
                     </FormControl>
-                    <FormLabel className="font-normal">All new messages</FormLabel>
+                    <FormLabel className="font-normal">
+                      All new messages
+                    </FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="mentions" />
                     </FormControl>
-                    <FormLabel className="font-normal">Direct messages and mentions</FormLabel>
+                    <FormLabel className="font-normal">
+                      Direct messages and mentions
+                    </FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
@@ -101,8 +104,12 @@ export default function NotificationsForm() {
               render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
-                    <FormLabel className="text-base">Communication emails</FormLabel>
-                    <FormDescription>Receive emails about your account activity.</FormDescription>
+                    <FormLabel className="text-base">
+                      Communication emails
+                    </FormLabel>
+                    <FormDescription>
+                      Receive emails about your account activity.
+                    </FormDescription>
                   </div>
                   <FormControl>
                     <Switch
@@ -119,8 +126,12 @@ export default function NotificationsForm() {
               render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
-                    <FormLabel className="text-base">Marketing emails</FormLabel>
-                    <FormDescription>Receive emails about new products, features, and more.</FormDescription>
+                    <FormLabel className="text-base">
+                      Marketing emails
+                    </FormLabel>
+                    <FormDescription>
+                      Receive emails about new products, features, and more.
+                    </FormDescription>
                   </div>
                   <FormControl>
                     <Switch
@@ -138,7 +149,9 @@ export default function NotificationsForm() {
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
                     <FormLabel className="text-base">Social emails</FormLabel>
-                    <FormDescription>Receive emails for friend requests, follows, and more.</FormDescription>
+                    <FormDescription>
+                      Receive emails for friend requests, follows, and more.
+                    </FormDescription>
                   </div>
                   <FormControl>
                     <Switch
@@ -156,7 +169,9 @@ export default function NotificationsForm() {
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
                     <FormLabel className="text-base">Security emails</FormLabel>
-                    <FormDescription>Receive emails about your account activity and security.</FormDescription>
+                    <FormDescription>
+                      Receive emails about your account activity and security.
+                    </FormDescription>
                   </div>
                   <FormControl>
                     <Switch
@@ -183,9 +198,12 @@ export default function NotificationsForm() {
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel>Use different settings for my mobile devices</FormLabel>
+                <FormLabel>
+                  Use different settings for my mobile devices
+                </FormLabel>
                 <FormDescription>
-                  You can manage your mobile notifications in the <a href="/examples/forms">mobile settings</a> page.
+                  You can manage your mobile notifications in the{' '}
+                  <a href="/examples/forms">mobile settings</a> page.
                 </FormDescription>
               </div>
             </FormItem>

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Button } from "@/Components/ui/button";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Button } from '@/Components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,59 +12,61 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/Components/ui/form";
-import { Input } from "@/Components/ui/input";
-import { toast } from "@/Components/ui/use-toast";
-import Path from "@/Services/Path";
-import Spinner from "@/Components/Spinner"; // Import the Spinner component
+} from '@/Components/ui/form';
+import { Input } from '@/Components/ui/input';
+import { toast } from '@/Components/ui/use-toast';
+import Path from '@/Services/Path';
+import Spinner from '@/Components/Spinner'; // Import the Spinner component
 
-const securityFormSchema = z.object({
-  newPassword: z
-    .string()
-    .min(8, {
-      message: "New password must be at least 8 characters.",
-    })
-    .max(20, {
-      message: "New password must not be longer than 20 characters.",
+const securityFormSchema = z
+  .object({
+    newPassword: z
+      .string()
+      .min(8, {
+        message: 'New password must be at least 8 characters.',
+      })
+      .max(20, {
+        message: 'New password must not be longer than 20 characters.',
+      }),
+    confirmPassword: z.string().min(8, {
+      message: 'Confirm password must be at least 8 characters.',
     }),
-  confirmPassword: z.string().min(8, {
-    message: "Confirm password must be at least 8 characters.",
-  }),
-}).refine((data) => data.newPassword === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"],
-});
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ['confirmPassword'],
+  });
 
 export default function SecurityForm() {
   const [loading, setLoading] = useState(false);
   const form = useForm({
     resolver: zodResolver(securityFormSchema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   async function onSubmit(data) {
     setLoading(true);
     try {
-      const response = await Path.put("/api/profile/password/update", {
+      const response = await Path.put('/api/profile/password/update', {
         new_password: data.newPassword,
       });
 
       if (response.data.success) {
         toast({
-          title: "Password Updated successfully!",
+          title: 'Password Updated successfully!',
         });
         form.reset({
-          newPassword: "",
-          confirmPassword: ""
+          newPassword: '',
+          confirmPassword: '',
         }); // Clear the form inputs
       } else {
         toast({
-          title: "Error changing password",
+          title: 'Error changing password',
         });
       }
     } catch (error) {
       toast({
-        title: "Error changing password",
+        title: 'Error changing password',
       });
     } finally {
       setLoading(false);
@@ -94,7 +96,11 @@ export default function SecurityForm() {
             <FormItem>
               <FormLabel>Confirm New Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="Confirm New Password" {...field} />
+                <Input
+                  type="password"
+                  placeholder="Confirm New Password"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -106,7 +112,7 @@ export default function SecurityForm() {
               <Spinner />
             </div>
           )}
-          {loading ? "" : "Change Password"}
+          {loading ? '' : 'Change Password'}
         </Button>
       </form>
     </Form>

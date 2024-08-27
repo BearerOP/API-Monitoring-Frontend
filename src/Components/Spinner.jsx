@@ -1,6 +1,6 @@
 // Spinner.js
-import React from "react";
-import '../Css/Spinner.css'
+
+import '../Css/Spinner.css';
 
 const Spinner = () => (
   <div className="spinner-border" role="status">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,25 +25,32 @@ import {
   FormMessage,
 } from '@/Components/ui/form';
 import { Input } from '@/Components/ui/input';
-import { Popover, PopoverContent, PopoverTrigger } from '@/Components/ui/popover';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/Components/ui/popover';
 import { toast } from '@/Components/ui/use-toast';
 
 const languages = [
-  { label: "English", value: "en" },
-  { label: "French", value: "fr" },
-  { label: "German", value: "de" },
-  { label: "Spanish", value: "es" },
-  { label: "Portuguese", value: "pt" },
-  { label: "Russian", value: "ru" },
-  { label: "Japanese", value: "ja" },
-  { label: "Korean", value: "ko" },
-  { label: "Chinese", value: "zh" },
+  { label: 'English', value: 'en' },
+  { label: 'French', value: 'fr' },
+  { label: 'German', value: 'de' },
+  { label: 'Spanish', value: 'es' },
+  { label: 'Portuguese', value: 'pt' },
+  { label: 'Russian', value: 'ru' },
+  { label: 'Japanese', value: 'ja' },
+  { label: 'Korean', value: 'ko' },
+  { label: 'Chinese', value: 'zh' },
 ];
 
 const accountFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(30, { message: "Name must not be longer than 30 characters." }),
-  dob: z.date({ required_error: "A date of birth is required." }),
-  language: z.string({ required_error: "Please select a language." }),
+  name: z
+    .string()
+    .min(2, { message: 'Name must be at least 2 characters.' })
+    .max(30, { message: 'Name must not be longer than 30 characters.' }),
+  dob: z.date({ required_error: 'A date of birth is required.' }),
+  language: z.string({ required_error: 'Please select a language.' }),
 });
 
 const defaultValues = {
@@ -52,7 +58,7 @@ const defaultValues = {
   // dob: new Date("2023-01-23"),
 };
 
- function AccountForm() {
+function AccountForm() {
   const form = useForm({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
@@ -60,7 +66,7 @@ const defaultValues = {
 
   function onSubmit(data) {
     toast({
-      title: "You submitted the following values:",
+      title: 'You submitted the following values:',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
@@ -82,7 +88,8 @@ const defaultValues = {
                 <Input placeholder="Your name" {...field} />
               </FormControl>
               <FormDescription>
-                This is the name that will be displayed on your profile and in emails.
+                This is the name that will be displayed on your profile and in
+                emails.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -98,13 +105,17 @@ const defaultValues = {
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
-                      variant={"outline"}
+                      variant={'outline'}
                       className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
+                        'w-[240px] pl-3 text-left font-normal',
+                        !field.value && 'text-muted-foreground'
                       )}
                     >
-                      {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                      {field.value ? (
+                        format(field.value, 'PPP')
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
                   </FormControl>
@@ -114,7 +125,9 @@ const defaultValues = {
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
-                    disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
+                    disabled={(date) =>
+                      date > new Date() || date < new Date('1900-01-01')
+                    }
                     initialFocus
                   />
                 </PopoverContent>
@@ -139,13 +152,15 @@ const defaultValues = {
                       variant="outline"
                       role="combobox"
                       className={cn(
-                        "w-[200px] justify-between",
-                        !field.value && "text-muted-foreground"
+                        'w-[200px] justify-between',
+                        !field.value && 'text-muted-foreground'
                       )}
                     >
                       {field.value
-                        ? languages.find((language) => language.value === field.value)?.label
-                        : "Select language"}
+                        ? languages.find(
+                            (language) => language.value === field.value
+                          )?.label
+                        : 'Select language'}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </FormControl>
@@ -160,12 +175,16 @@ const defaultValues = {
                           <CommandItem
                             value={language.label}
                             key={language.value}
-                            onSelect={() => form.setValue("language", language.value)}
+                            onSelect={() =>
+                              form.setValue('language', language.value)
+                            }
                           >
                             <CheckIcon
                               className={cn(
-                                "mr-2 h-4 w-4",
-                                language.value === field.value ? "opacity-100" : "opacity-0"
+                                'mr-2 h-4 w-4',
+                                language.value === field.value
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
                               )}
                             />
                             {language.label}

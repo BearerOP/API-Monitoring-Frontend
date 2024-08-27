@@ -1,38 +1,54 @@
-/* From Uiverse.io by david-mohseni */ 
+/* From Uiverse.io by david-mohseni */
 .minimalLoader {
-    position: relative;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    animation: .8s rotate linear infinite reverse;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  animation: 0.8s rotate linear infinite reverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.minimalLoader div {
+  width: 3px;
+  height: 7px;
+  background: rgb(129, 62, 224);
+  position: absolute;
+  opacity: 1;
+  border-radius: 50vh;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .minimalLoader div {
-    width: 3px;
-    height: 7px;
-    background: rgb(129, 62, 224);
-    position: absolute;
-    opacity: 1;
-    border-radius: 50vh;
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .minimalLoader .bar1 { transform: rotate(0deg) translateY(-8px); }
-  .minimalLoader .bar2 { transform: rotate(45deg) translateY(-8px); }
-  .minimalLoader .bar3 { transform: rotate(90deg) translateY(-8px); }
-  .minimalLoader .bar4 { transform: rotate(135deg) translateY(-8px); }
-  .minimalLoader .bar5 { transform: rotate(180deg) translateY(-8px); }
-  .minimalLoader .bar6 { transform: rotate(225deg) translateY(-8px); }
-  .minimalLoader .bar7 { transform: rotate(270deg) translateY(-8px); }
-  .minimalLoader .bar8 { transform: rotate(315deg) translateY(-8px); }
+}
+
+.minimalLoader .bar1 {
+  transform: rotate(0deg) translateY(-8px);
+}
+.minimalLoader .bar2 {
+  transform: rotate(45deg) translateY(-8px);
+}
+.minimalLoader .bar3 {
+  transform: rotate(90deg) translateY(-8px);
+}
+.minimalLoader .bar4 {
+  transform: rotate(135deg) translateY(-8px);
+}
+.minimalLoader .bar5 {
+  transform: rotate(180deg) translateY(-8px);
+}
+.minimalLoader .bar6 {
+  transform: rotate(225deg) translateY(-8px);
+}
+.minimalLoader .bar7 {
+  transform: rotate(270deg) translateY(-8px);
+}
+.minimalLoader .bar8 {
+  transform: rotate(315deg) translateY(-8px);
+}

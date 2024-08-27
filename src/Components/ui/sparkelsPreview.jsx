@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import { SparklesCore } from "./sparkles";
-import TextGenerate from "../TextGenerate";
-import { motion } from "framer-motion";
+'use client';
+
+import { SparklesCore } from './sparkles';
+import TextGenerate from '../TextGenerate';
+import { motion } from 'framer-motion';
 
 export function SparklesPreview({ title }) {
   return (
@@ -10,8 +10,7 @@ export function SparklesPreview({ title }) {
       <div className="h-screen w-full bg-[#0a0311] flex flex-col items-center justify-center overflow-hidden rounded-md pt-[120px]">
         <div className="flex flex-col items-center justify-center ">
           <div className="">
-
-            <span className="text-center text-white relative b-0  z-20 text-3xl sm:text-5xl md:text-6xl lg:text-9xl hover:text-slate-600 " >
+            <span className="text-center text-white relative b-0  z-20 text-3xl sm:text-5xl md:text-6xl lg:text-9xl hover:text-slate-600 ">
               <TextGenerate words={title} />
             </span>
           </div>
@@ -19,7 +18,7 @@ export function SparklesPreview({ title }) {
             className="w-[40rem] h-40 relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1,delay: 1 }} // Adjust duration as needed
+            transition={{ duration: 1, delay: 1 }} // Adjust duration as needed
           >
             {/* Gradients */}
             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-2/4 blur-sm" />
@@ -42,7 +41,6 @@ export function SparklesPreview({ title }) {
             />
             <div className="absolute inset-0 w-full h-full bg-[#0a0311] [mask-image:radial-gradient(350px_200px_at_top,transparent_30%,white)]"></div>
           </motion.div>
-
         </div>
         <motion.div
           className="text-2xl md:text-4xl text-center mt-10 text-wrap"

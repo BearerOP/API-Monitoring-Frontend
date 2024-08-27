@@ -1,196 +1,203 @@
 .sign-up-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(18, 2, 41, 0.9) 0%, rgba(18, 2, 41, 0.7) 70%), url('../assets/images/undraw_moonlight_-5-ksn.svg') no-repeat bottom center fixed;
-    background-size: 1000px;
-    color: rgb(255 255 255 / 67%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(18, 2, 41, 0.9) 0%, rgba(18, 2, 41, 0.7) 70%),
+    url('../assets/images/undraw_moonlight_-5-ksn.svg') no-repeat bottom center
+      fixed;
+  background-size: 1000px;
+  color: rgb(255 255 255 / 67%);
 }
 
 .sign-up-card {
-    background: rgb(18 2 41 / 50%);
-    padding: 2rem;
-    border-radius: 30px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
-    width: 400px;
-    margin-left: 5rem;
-    height: 520px;
+  background: rgb(18 2 41 / 50%);
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+  width: 400px;
+  margin-left: 5rem;
+  height: 520px;
 }
 
 .sign-up-title {
-    font-size: 24px;
-    margin-bottom: 1rem;
-    color: #fff;
+  font-size: 24px;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .sign-up-subtitle {
-    font-size: 14px;
-    margin-bottom: 2rem;
-    color: #aaa;
+  font-size: 14px;
+  margin-bottom: 2rem;
+  color: #aaa;
 }
 
 .sign-up-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group {
-    position: relative;
-    margin-bottom: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .input {
-    width: 92%;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 1.5px solid #9e9e9e;
-    background: none;
-    font-size: 1rem;
-    color: #f5f5f5;
-    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgb(96 74 156 / 20%);
+  width: 92%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1.5px solid #9e9e9e;
+  background: none;
+  font-size: 1rem;
+  color: #f5f5f5;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgb(96 74 156 / 20%);
 }
 
 .user-label {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    color: #e8e8e8;
-    pointer-events: none;
-    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #e8e8e8;
+  pointer-events: none;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input:focus, .input:valid {
-    outline: none;
-    background: transparent;
-    border: 1.5px solid #1a73e8;
+.input:focus,
+.input:valid {
+  outline: none;
+  background: transparent;
+  border: 1.5px solid #1a73e8;
 }
 
-.input:focus ~ .user-label, .input:valid ~ .user-label {
-    top: 0;
-    transform: translateY(-40%) scale(0.8);
-    backdrop-filter: blur(20px);
-    padding: 0 .2em;
-    color: #2196f3;
+.input:focus ~ .user-label,
+.input:valid ~ .user-label {
+  top: 0;
+  transform: translateY(-40%) scale(0.8);
+  backdrop-filter: blur(20px);
+  padding: 0 0.2em;
+  color: #2196f3;
 }
 
 .checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .checkbox {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .checkbox-label {
-    font-size: 14px;
-    color: #aaa;
+  font-size: 14px;
+  color: #aaa;
 }
 
 .link {
-    color: #1e90ff;
+  color: #1e90ff;
 }
 
 .sign-up-button {
-    padding: 0.75rem;
-    height: 50px;
-    width: 60%;
-    border-radius: 25px;
-    font-size: 16px;
-    background: #1e90ff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin-top: 7rem;
-    position: absolute;
-    left: 20%;
-    margin-bottom: 1rem;
+  padding: 0.75rem;
+  height: 50px;
+  width: 60%;
+  border-radius: 25px;
+  font-size: 16px;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 7rem;
+  position: absolute;
+  left: 20%;
+  margin-bottom: 1rem;
 }
 
 .illustration {
-    width: 500px;
-    height: 100vh;
-    margin-right: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 500px;
+  height: 100vh;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .illustration-image {
-    width: 450px;
-    height: auto;
-    position: absolute;
-    bottom: 0px;
+  width: 450px;
+  height: auto;
+  position: absolute;
+  bottom: 0px;
 }
 
-
 .boton-elegante {
-    padding: 15px 30px;
-    border: 2px solid #2c2c2c;
-    background-color: #1d0043;
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: all .3s ease;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
+  padding: 15px 30px;
+  border: 2px solid #2c2c2c;
+  background-color: #1d0043;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.boton-elegante::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 1s ease;
+}
+
+.boton-elegante:hover::after {
+  transform: scale(4);
+}
+
+.boton-elegante:hover {
+  border-color: #350648;
+  background: #150121;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
+/* Spinner styles */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #22a6b3;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .boton-elegante::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.25) 0%,
-      rgba(255, 255, 255, 0) 70%
-    );
-    transform: scale(0);
-    transition: transform 1s ease;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .boton-elegante:hover::after {
-    transform: scale(4);
-  }
-  
-  .boton-elegante:hover {
-    border-color: #350648;
-    background: #150121;
-  }
-  
-  .error-message {
-    color: #ff0000;
-  }
-  
-  /* Spinner styles */
-  .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #22a6b3;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 8px;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  
-  .error-message {
-    color: red; 
+}
+
+.error-message {
+  color: red;
 }

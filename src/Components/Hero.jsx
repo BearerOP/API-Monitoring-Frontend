@@ -1,9 +1,8 @@
-import React from 'react';
 import { SparklesPreview } from './ui/sparkelsPreview';
-let title = 'Up-Status'
+let title = 'Up-Status';
 const Hero = () => (
   <>
-  <SparklesPreview title={title}/>
+    <SparklesPreview title={title} />
   </>
 );
 

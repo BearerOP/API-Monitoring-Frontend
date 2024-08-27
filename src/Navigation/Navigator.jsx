@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Dashboard from '../Screens/Dashboard';
 import Dashboard2 from '../Screens/Dashboard2';
@@ -60,7 +60,7 @@ const Navigator = () => {
         exit={{ opacity: 0 }}
         transition={{
           duration: 0.3, // Duration of the transition in seconds
-          ease: "easeInOut" // Easing function for smooth in and out effect
+          ease: 'easeInOut', // Easing function for smooth in and out effect
         }}
       >
         <Routes location={location} key={location.pathname}>
@@ -68,7 +68,7 @@ const Navigator = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-          <Route path='/forgot-password' element={<ForgotPassword/>} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/dashboard"
             element={
@@ -88,9 +88,12 @@ const Navigator = () => {
             <Route path="help" element={<Help />} />
             <Route path="setting" element={<SettingsLayout />}>
               <Route index element={<SettingsProfilePage />} />
-              <Route path='account' element={<SettingsAccountPage />} />
-              <Route path='notifications' element={<SettingsNotificationsPage />} />
-              <Route path='security' element={<SettingsSecurityPage />} />
+              <Route path="account" element={<SettingsAccountPage />} />
+              <Route
+                path="notifications"
+                element={<SettingsNotificationsPage />}
+              />
+              <Route path="security" element={<SettingsSecurityPage />} />
             </Route>
           </Route>
           <Route path="/gallery" element={<Gallery />} />

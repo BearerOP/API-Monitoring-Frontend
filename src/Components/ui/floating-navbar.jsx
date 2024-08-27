@@ -1,13 +1,13 @@
-import React, { useContext, useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { useContext, useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { cn } from "@/lib/utils"; // Ensure this utility handles class names properly
-import { Link, useLocation } from "react-router-dom";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-import { AuthContext } from "../../Context/AuthContext";
-import Path from "../../Services/Path";
-import Loader from "./../Loader";
-import HoverBorderGradient from "./hover-border-gradient";
+import { cn } from '@/lib/utils'; // Ensure this utility handles class names properly
+import { Link, useLocation } from 'react-router-dom';
+import { IconHome, IconMessage, IconUser } from '@tabler/icons-react';
+import { AuthContext } from '../../Context/AuthContext';
+import Path from '../../Services/Path';
+import Loader from './../Loader';
+import HoverBorderGradient from './hover-border-gradient';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,8 +18,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/Components/ui/alert-dialog";
-import MinimalLoader from "../MinimalLoader";
+} from '@/Components/ui/alert-dialog';
+import MinimalLoader from '../MinimalLoader';
 
 const FloatingNav = ({ className }) => {
   const { auth, logout } = useContext(AuthContext);
@@ -57,7 +57,10 @@ const FloatingNav = ({ className }) => {
       const viewportHeight = window.innerHeight;
 
       // Show the nav if scrolling up, otherwise hide if scrolling down past 100vh
-      setVisible(scrollPosition < viewportHeight || scrollY.getPrevious() > scrollPosition);
+      setVisible(
+        scrollPosition < viewportHeight ||
+          scrollY.getPrevious() > scrollPosition
+      );
     };
 
     handleScroll(); // Initial check
@@ -68,19 +71,21 @@ const FloatingNav = ({ className }) => {
 
   const navItems = [
     {
-      name: "Home",
-      link: "/",
+      name: 'Home',
+      link: '/',
       icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "About",
-      link: "/about",
+      name: 'About',
+      link: '/about',
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Contact",
-      link: "/contact",
-      icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      name: 'Contact',
+      link: '/contact',
+      icon: (
+        <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
     },
   ];
 
@@ -95,7 +100,7 @@ const FloatingNav = ({ className }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "flex w-fit fixed top-10 inset-x-0 mx-auto border border-white/[0.2] rounded-full bg-[#000000a0] backdrop-blur-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4 overflow-hidden",
+              'flex w-fit fixed top-10 inset-x-0 mx-auto border border-white/[0.2] rounded-full bg-[#000000a0] backdrop-blur-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4 overflow-hidden',
               className // Apply additional custom classes
             )}
           >
@@ -105,11 +110,13 @@ const FloatingNav = ({ className }) => {
                   key={navItem.link || idx}
                   to={navItem.link}
                   className={cn(
-                    "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300"
+                    'relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300'
                   )}
                 >
                   <span className="block sm:hidden">{navItem.icon}</span>
-                  <span className="hidden sm:block text-sm">{navItem.name}</span>
+                  <span className="hidden sm:block text-sm">
+                    {navItem.name}
+                  </span>
                 </Link>
               ))
             ) : (
@@ -123,7 +130,9 @@ const FloatingNav = ({ className }) => {
                       {loading ? (
                         <Loader />
                       ) : (
-                        <span className="username">Welcome, {userDetails?.data?.username || "User"}</span>
+                        <span className="username">
+                          Welcome, {userDetails?.data?.username || 'User'}
+                        </span>
                       )}
                     </>
                   )}
@@ -139,9 +148,7 @@ const FloatingNav = ({ className }) => {
                   )}
                   <AlertDialog>
                     <AlertDialogTrigger>
-                      <button
-                        className="flex border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white px-4 py-2 rounded-full transition-colors duration-300 hover:text-red-600 hover:border-red-800 hover:border"
-                      >
+                      <button className="flex border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white px-4 py-2 rounded-full transition-colors duration-300 hover:text-red-600 hover:border-red-800 hover:border">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={24}
@@ -164,26 +171,34 @@ const FloatingNav = ({ className }) => {
                     </AlertDialogTrigger>
                     <AlertDialogContent className="dark w-96 h-60">
                       <AlertDialogHeader>
-                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                        <AlertDialogDescription className='inline-flex'>
+                        <AlertDialogTitle>
+                          Are you absolutely sure?
+                        </AlertDialogTitle>
+                        <AlertDialogDescription className="inline-flex">
                           <pre className="text-wrap">
                             This action cannot be undone. This will
-                            <span className="text-destructive font-bold mx-1">log you out</span>
-                            your account
-                            from the website.
+                            <span className="text-destructive font-bold mx-1">
+                              log you out
+                            </span>
+                            your account from the website.
                           </pre>
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                        <AlertDialogAction onClick={logout}>Continue</AlertDialogAction>
+                        <AlertDialogAction onClick={logout}>
+                          Continue
+                        </AlertDialogAction>
                       </AlertDialogFooter>
                     </AlertDialogContent>
                   </AlertDialog>
                 </>
               ) : (
                 <>
-                  <Link to="/signup" className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-4 py-2 rounded-full">
+                  <Link
+                    to="/signup"
+                    className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white px-4 py-2 rounded-full"
+                  >
                     Sign up
                   </Link>
                   <Link to="/login">
@@ -208,34 +223,36 @@ const FloatingNav = ({ className }) => {
           </motion.div>
         )}
         {isAuthenticated && (
-  <AnimatePresence>
-    {visible && (
-      <motion.div
-        key="profile-image"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.5 }}
-        className="w-fit fixed top-10 inset-x-0 ml-auto border border-white/[0.3] rounded-full bg-[#000000a0] backdrop-blur-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] items-center justify-center space-x-4 overflow-hidden mr-4 lg:block md:block hidden" // Hide under 680px (lg breakpoint)
-      >
-        {loading ? (
-          <div className="h-[60px] w-[60px] flex items-center justify-evenly">
-            
-            <MinimalLoader />
-          </div>
-        ) : (
-          <div className="h-[60px] w-[60px] object-cover flex items-center justify-evenly">
-            <img
-              src={userDetails?.data?.profilePicture || '/default-avatar.png'}
-              alt="Profile"
-              className="w-10 h-10 object-cover rounded-full border-1 border-slate-500"
-            />
-          </div>
+          <AnimatePresence>
+            {visible && (
+              <motion.div
+                key="profile-image"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5 }}
+                className="w-fit fixed top-10 inset-x-0 ml-auto border border-white/[0.3] rounded-full bg-[#000000a0] backdrop-blur-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] items-center justify-center space-x-4 overflow-hidden mr-4 lg:block md:block hidden" // Hide under 680px (lg breakpoint)
+              >
+                {loading ? (
+                  <div className="h-[60px] w-[60px] flex items-center justify-evenly">
+                    <MinimalLoader />
+                  </div>
+                ) : (
+                  <div className="h-[60px] w-[60px] object-cover flex items-center justify-evenly">
+                    <img
+                      src={
+                        userDetails?.data?.profilePicture ||
+                        '/default-avatar.png'
+                      }
+                      alt="Profile"
+                      className="w-10 h-10 object-cover rounded-full border-1 border-slate-500"
+                    />
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         )}
-      </motion.div>
-    )}
-  </AnimatePresence>
-)}
       </AnimatePresence>
     </div>
   );

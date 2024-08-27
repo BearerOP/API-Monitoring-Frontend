@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // Define keyframes for rotation animation
@@ -34,19 +33,19 @@ const Bar = styled.div`
 
 // Use styled-components to create the React component
 const MinimalLoaderComponent = ({ barColor }) => {
-    const bars = Array.from({ length: 8 }, (_, index) => 45 * index);
-  
-    return (
-        <div className='h-full w-full flex justify-center items-center'>
-          <div className='flex justify-center items-center w-8 h-8'>
-            <MinimalLoader>
-                {bars.map((rotation, index) => (
-                    <Bar key={index} rotation={rotation} barColor={barColor} />
-                ))}
-            </MinimalLoader>
-        </div>
-        </div>
-    );
-}
+  const bars = Array.from({ length: 8 }, (_, index) => 45 * index);
+
+  return (
+    <div className="h-full w-full flex justify-center items-center">
+      <div className="flex justify-center items-center w-8 h-8">
+        <MinimalLoader>
+          {bars.map((rotation, index) => (
+            <Bar key={index} rotation={rotation} barColor={barColor} />
+          ))}
+        </MinimalLoader>
+      </div>
+    </div>
+  );
+};
 
 export default MinimalLoaderComponent;

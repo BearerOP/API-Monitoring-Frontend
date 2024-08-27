@@ -1,6 +1,6 @@
-"use client";
-import { motion } from "framer-motion";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+'use client';
+import { motion } from 'framer-motion';
+import { TextGenerateEffect } from './ui/text-generate-effect';
 
 const words = `Introducing Avadhi`;
 

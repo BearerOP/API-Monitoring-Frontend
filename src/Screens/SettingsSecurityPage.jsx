@@ -1,6 +1,5 @@
-import { Separator } from "@/Components/ui/separator"
-import SecurityForm from "./SecurityForm"
-
+import { Separator } from '@/Components/ui/separator';
+import SecurityForm from './SecurityForm';
 
 export default function SettingsSecurityPage() {
   return (
@@ -14,5 +13,5 @@ export default function SettingsSecurityPage() {
       <Separator />
       <SecurityForm />
     </div>
-  ) 
+  );
 }

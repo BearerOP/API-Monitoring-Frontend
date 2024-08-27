@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import { BackgroundBeams } from "@/Components/ui/background-beams";
-import { Input } from "@/Components/ui/input";
+'use client';
+
+import { BackgroundBeams } from '@/Components/ui/background-beams';
+import { Input } from '@/Components/ui/input';
 
 export default function ContactUs() {
   return (

@@ -9,15 +9,15 @@ import {
   Search,
   HelpingHandIcon,
   SettingsIcon,
-} from "lucide-react"
-import { Button } from "../Components/ui/button"
+} from 'lucide-react';
+import { Button } from '../Components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../Components/ui/card"
+} from '../Components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,17 +25,16 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../Components/ui/dropdown-menu"
-import { Input } from "../Components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "../Components/ui/sheet"
+} from '../Components/ui/dropdown-menu';
+import { Input } from '../Components/ui/input';
+import { Sheet, SheetContent, SheetTrigger } from '../Components/ui/sheet';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { useContext } from 'react';
-import { Toaster } from "@/Components/ui/toaster";
+import { Toaster } from '@/Components/ui/toaster';
 const DashboardLayout = () => {
-
   const navigate = useNavigate();
-  const { auth, logout } = useContext(AuthContext) || {};
+  const { logout } = useContext(AuthContext) || {};
 
   const handleLogout = () => {
     logout();
@@ -54,7 +53,7 @@ const DashboardLayout = () => {
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <NavLink to='/' className="flex items-center gap-2 font-semibold">
+            <NavLink to="/" className="flex items-center gap-2 font-semibold">
               <h1 className="text-2xl">Avadhi</h1>
             </NavLink>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
@@ -65,10 +64,13 @@ const DashboardLayout = () => {
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <NavLink
-                to='/dashboard'
+                to="/dashboard"
                 end
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                    isActive
+                      ? 'bg-muted text-primary'
+                      : 'text-muted-foreground hover:text-primary'
                   }`
                 }
               >
@@ -76,9 +78,12 @@ const DashboardLayout = () => {
                 Home
               </NavLink>
               <NavLink
-                to='monitor'
+                to="monitor"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                    isActive
+                      ? 'bg-muted text-primary'
+                      : 'text-muted-foreground hover:text-primary'
                   }`
                 }
               >
@@ -86,9 +91,12 @@ const DashboardLayout = () => {
                 Monitoring & Analytics
               </NavLink>
               <NavLink
-                to='setting'
+                to="setting"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                    isActive
+                      ? 'bg-muted text-primary'
+                      : 'text-muted-foreground hover:text-primary'
                   }`
                 }
               >
@@ -96,9 +104,12 @@ const DashboardLayout = () => {
                 Settings
               </NavLink>
               <NavLink
-                to='help'
+                to="help"
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                  `flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                    isActive
+                      ? 'bg-muted text-primary'
+                      : 'text-muted-foreground hover:text-primary'
                   }`
                 }
               >
@@ -152,7 +163,10 @@ const DashboardLayout = () => {
                     to="/dashboard"
                     end
                     className={({ isActive }) =>
-                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${
+                        isActive
+                          ? 'bg-muted text-primary'
+                          : 'text-muted-foreground hover:text-primary'
                       }`
                     }
                   >
@@ -162,7 +176,10 @@ const DashboardLayout = () => {
                   <NavLink
                     to="monitor"
                     className={({ isActive }) =>
-                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${
+                        isActive
+                          ? 'bg-muted text-primary'
+                          : 'text-muted-foreground hover:text-primary'
                       }`
                     }
                   >
@@ -172,7 +189,10 @@ const DashboardLayout = () => {
                   <NavLink
                     to="setting"
                     className={({ isActive }) =>
-                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                      `mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 transition-all ${
+                        isActive
+                          ? 'bg-muted text-primary'
+                          : 'text-muted-foreground hover:text-primary'
                       }`
                     }
                   >
@@ -180,13 +200,15 @@ const DashboardLayout = () => {
                     Settings
                   </NavLink>
                 </div>
-
               </nav>
               <div className="mt-auto">
                 <NavLink
                   to="help"
                   className={({ isActive }) =>
-                    `mx-[-0.65rem] flex items-center justify-center gap-4 rounded-xl px-3 py-2 transition-all ${isActive ? 'bg-muted text-primary' : 'text-muted-foreground hover:text-primary'
+                    `mx-[-0.65rem] flex items-center justify-center gap-4 rounded-xl px-3 py-2 transition-all ${
+                      isActive
+                        ? 'bg-muted text-primary'
+                        : 'text-muted-foreground hover:text-primary'
                     }`
                   }
                 >
@@ -208,20 +230,24 @@ const DashboardLayout = () => {
               </div>
             </form>
           </div>
-          <DropdownMenu >
+          <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
                 <CircleUser className="h-5 w-5" />
                 <span className="sr-only">Toggle user menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className='dark' align="end">
+            <DropdownMenuContent className="dark" align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleSettingsClick}>Settings</DropdownMenuItem>
-              <DropdownMenuItem onClick={handleHelpsClick}>Support</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSettingsClick}>
+                Settings
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleHelpsClick}>
+                Support
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} >Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
@@ -231,8 +257,7 @@ const DashboardLayout = () => {
         </main>
       </div>
     </div>
-  )
-
+  );
 };
 
 export default DashboardLayout;
