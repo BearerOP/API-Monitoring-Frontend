@@ -5,8 +5,8 @@ import { getToken } from '@/Services/AuthService'; // Create a utility to get th
 const baseURL =
   import.meta.env.VITE_APP_ENV === 'development'
     ? 'http://localhost:8080' // Development URL
-    : // : "https://up-status.onrender.com";
-      'http://13.235.99.19:8080/'; // Production URL
+    : 'https://up-status.onrender.com';
+// : 'http://13.235.99.19:8080/'; // Production URL
 
 const Path = axios.create({
   baseURL,
