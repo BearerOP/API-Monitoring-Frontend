@@ -27,6 +27,7 @@ import Logo from '@/Components/Logo';
 import ResetPassword from '@/Screens/ResetPassword';
 import ForgotPassword from '@/Screens/ForgotPassword';
 import Demo from '@/Screens/Demo';
+import View from '@/Screens/View';
 
 const Navigator = () => {
   const { auth, login, logout } = useAuth();
@@ -69,6 +70,7 @@ const Navigator = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/view" element={<View />} />
           <Route
             path="/dashboard"
             element={
