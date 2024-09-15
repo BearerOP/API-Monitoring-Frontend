@@ -9,6 +9,7 @@ import { Gallery } from './Gallery.jsx';
 import HeroScroll from '@/Components/HeroScroll.jsx';
 import LinkPreviewHero from '@/Components/LinkPreview.jsx';
 import ContactUs from './ContactUs.jsx';
+import { ScrollToTopButton } from '@/Components/ScrollToTopButton.jsx';
 
 function LandingPage() {
   return (
@@ -23,6 +24,7 @@ function LandingPage() {
         <Cards />
         <Testimonials />
         <Footer />
+        <ScrollToTopButton />
       </div>
       <Toaster />
     </>
