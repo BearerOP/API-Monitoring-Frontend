@@ -2,7 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import {
   Bell,
   CircleUser,
-  Home,
+  // Home,
   LineChart,
   Menu,
   Package2,
@@ -63,7 +63,7 @@ const DashboardLayout = () => {
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <NavLink
+              {/* <NavLink
                 to="/dashboard"
                 end
                 className={({ isActive }) =>
@@ -76,7 +76,7 @@ const DashboardLayout = () => {
               >
                 <Home className="h-4 w-4" />
                 Home
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 to="monitor"
                 className={({ isActive }) =>
@@ -159,7 +159,7 @@ const DashboardLayout = () => {
                     <Package2 className="h-6 w-6" />
                     <span className="sr-only">Up Status</span>
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     to="/dashboard"
                     end
                     className={({ isActive }) =>
@@ -172,7 +172,7 @@ const DashboardLayout = () => {
                   >
                     <Home className="h-5 w-5" />
                     Home
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink
                     to="monitor"
                     className={({ isActive }) =>
