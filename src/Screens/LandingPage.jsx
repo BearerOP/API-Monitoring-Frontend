@@ -10,11 +10,12 @@ import HeroScroll from '@/Components/HeroScroll.jsx';
 import LinkPreviewHero from '@/Components/LinkPreview.jsx';
 import ContactUs from './ContactUs.jsx';
 import { ScrollToTopButton } from '@/Components/ScrollToTopButton.jsx';
+import Footer2 from '@/Components/Footer2.jsx';
 
 function LandingPage() {
   return (
     <>
-      <div className="App bg-[#0a0311] ">
+      <div className="App bg-[#ffffff] ">
         <Navbar className="bg-[#0a0311]" />
         <Hero />
         <LinkPreviewHero />
@@ -24,6 +25,7 @@ function LandingPage() {
         <Cards />
         <Testimonials />
         <Footer />
+        <Footer2 />
         <ScrollToTopButton />
       </div>
       <Toaster />
