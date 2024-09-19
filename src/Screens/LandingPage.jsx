@@ -15,7 +15,7 @@ import Footer2 from '@/Components/Footer2.jsx';
 function LandingPage() {
   return (
     <>
-      <div className="App bg-[#ffffff] ">
+      <div className="App bg-[#0a0311] ">
         <Navbar className="bg-[#0a0311]" />
         <Hero />
         <LinkPreviewHero />
