@@ -8,7 +8,10 @@ const SocialCard = () => {
         <img src={astronautImage} alt="" className="image" />
         <div className="heading">We&apos;re on Social Media</div>
         <div className="icons">
-          <a href="https://www.instagram.com/uiverse.io/" className="instagram">
+          <a
+            href="https://www.instagram.com/humhaiankit/"
+            className="instagram"
+          >
             <svg
               width="24"
               height="25"
@@ -25,7 +28,7 @@ const SocialCard = () => {
               ></path>
             </svg>
           </a>
-          <a href="https://twitter.com/uiverse_io" className="x">
+          <a href="https://x.com/ankit_189" className="x">
             <svg
               width="24"
               height="24"
