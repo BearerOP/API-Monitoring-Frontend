@@ -193,6 +193,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -200,4 +201,27 @@
 
 .error-message {
   color: red;
+}
+
+.inner-div {
+  position: relative;
+  /* To position the shadow correctly */
+  width: 300px;
+  /* Adjust width as needed */
+  height: 300px;
+  /* Adjust height as needed */
+  background-color: white;
+  /* Background color of inner div */
+  border-radius: 16px;
+  /* Optional: Rounded corners */
+  z-index: 10;
+  /* Make sure this is above the shadow */
+}
+
+.gradient-shadow {
+  background: radial-gradient(
+    circle at 60% 70%,
+    rgba(82, 39, 105, 0.7) 0%,
+    rgba(0, 0, 0, 1) 30%
+  );
 }
